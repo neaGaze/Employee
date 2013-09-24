@@ -1,0 +1,302 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		78C71C4917F18DF000B71C64 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C71C4817F18DF000B71C64 /* UIKit.framework */; };
+		78C71C4B17F18DF000B71C64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C71C4A17F18DF000B71C64 /* Foundation.framework */; };
+		78C71C4D17F18DF000B71C64 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C71C4C17F18DF000B71C64 /* CoreGraphics.framework */; };
+		78C71C5317F18DF000B71C64 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78C71C5117F18DF000B71C64 /* InfoPlist.strings */; };
+		78C71C5517F18DF000B71C64 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 78C71C5417F18DF000B71C64 /* main.m */; };
+		78C71C5917F18DF000B71C64 /* EMSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 78C71C5817F18DF000B71C64 /* EMSAppDelegate.m */; };
+		78C71C5B17F18DF000B71C64 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 78C71C5A17F18DF000B71C64 /* Default.png */; };
+		78C71C5D17F18DF000B71C64 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 78C71C5C17F18DF000B71C64 /* Default@2x.png */; };
+		78C71C5F17F18DF000B71C64 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 78C71C5E17F18DF000B71C64 /* Default-568h@2x.png */; };
+		78C71C6217F18DF000B71C64 /* EMSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78C71C6117F18DF000B71C64 /* EMSViewController.m */; };
+		78C71C6517F18DF000B71C64 /* EMSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78C71C6317F18DF000B71C64 /* EMSViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		78C71C4417F18DF000B71C64 /* Employee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Employee.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		78C71C4817F18DF000B71C64 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		78C71C4A17F18DF000B71C64 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		78C71C4C17F18DF000B71C64 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		78C71C5017F18DF000B71C64 /* Employee-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Employee-Info.plist"; sourceTree = "<group>"; };
+		78C71C5217F18DF000B71C64 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		78C71C5417F18DF000B71C64 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		78C71C5617F18DF000B71C64 /* Employee-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Employee-Prefix.pch"; sourceTree = "<group>"; };
+		78C71C5717F18DF000B71C64 /* EMSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EMSAppDelegate.h; sourceTree = "<group>"; };
+		78C71C5817F18DF000B71C64 /* EMSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EMSAppDelegate.m; sourceTree = "<group>"; };
+		78C71C5A17F18DF000B71C64 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		78C71C5C17F18DF000B71C64 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		78C71C5E17F18DF000B71C64 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		78C71C6017F18DF000B71C64 /* EMSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EMSViewController.h; sourceTree = "<group>"; };
+		78C71C6117F18DF000B71C64 /* EMSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EMSViewController.m; sourceTree = "<group>"; };
+		78C71C6417F18DF000B71C64 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/EMSViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		78C71C4117F18DF000B71C64 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78C71C4917F18DF000B71C64 /* UIKit.framework in Frameworks */,
+				78C71C4B17F18DF000B71C64 /* Foundation.framework in Frameworks */,
+				78C71C4D17F18DF000B71C64 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		78C71C3917F18DF000B71C64 = {
+			isa = PBXGroup;
+			children = (
+				78C71C4E17F18DF000B71C64 /* Employee */,
+				78C71C4717F18DF000B71C64 /* Frameworks */,
+				78C71C4517F18DF000B71C64 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		78C71C4517F18DF000B71C64 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				78C71C4417F18DF000B71C64 /* Employee.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		78C71C4717F18DF000B71C64 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				78C71C4817F18DF000B71C64 /* UIKit.framework */,
+				78C71C4A17F18DF000B71C64 /* Foundation.framework */,
+				78C71C4C17F18DF000B71C64 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		78C71C4E17F18DF000B71C64 /* Employee */ = {
+			isa = PBXGroup;
+			children = (
+				78C71C5717F18DF000B71C64 /* EMSAppDelegate.h */,
+				78C71C5817F18DF000B71C64 /* EMSAppDelegate.m */,
+				78C71C6017F18DF000B71C64 /* EMSViewController.h */,
+				78C71C6117F18DF000B71C64 /* EMSViewController.m */,
+				78C71C6317F18DF000B71C64 /* EMSViewController.xib */,
+				78C71C4F17F18DF000B71C64 /* Supporting Files */,
+			);
+			path = Employee;
+			sourceTree = "<group>";
+		};
+		78C71C4F17F18DF000B71C64 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				78C71C5017F18DF000B71C64 /* Employee-Info.plist */,
+				78C71C5117F18DF000B71C64 /* InfoPlist.strings */,
+				78C71C5417F18DF000B71C64 /* main.m */,
+				78C71C5617F18DF000B71C64 /* Employee-Prefix.pch */,
+				78C71C5A17F18DF000B71C64 /* Default.png */,
+				78C71C5C17F18DF000B71C64 /* Default@2x.png */,
+				78C71C5E17F18DF000B71C64 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		78C71C4317F18DF000B71C64 /* Employee */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 78C71C6817F18DF000B71C64 /* Build configuration list for PBXNativeTarget "Employee" */;
+			buildPhases = (
+				78C71C4017F18DF000B71C64 /* Sources */,
+				78C71C4117F18DF000B71C64 /* Frameworks */,
+				78C71C4217F18DF000B71C64 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Employee;
+			productName = Employee;
+			productReference = 78C71C4417F18DF000B71C64 /* Employee.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		78C71C3B17F18DF000B71C64 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = EMS;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = STC;
+			};
+			buildConfigurationList = 78C71C3E17F18DF000B71C64 /* Build configuration list for PBXProject "Employee" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 78C71C3917F18DF000B71C64;
+			productRefGroup = 78C71C4517F18DF000B71C64 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				78C71C4317F18DF000B71C64 /* Employee */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		78C71C4217F18DF000B71C64 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78C71C5317F18DF000B71C64 /* InfoPlist.strings in Resources */,
+				78C71C5B17F18DF000B71C64 /* Default.png in Resources */,
+				78C71C5D17F18DF000B71C64 /* Default@2x.png in Resources */,
+				78C71C5F17F18DF000B71C64 /* Default-568h@2x.png in Resources */,
+				78C71C6517F18DF000B71C64 /* EMSViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		78C71C4017F18DF000B71C64 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78C71C5517F18DF000B71C64 /* main.m in Sources */,
+				78C71C5917F18DF000B71C64 /* EMSAppDelegate.m in Sources */,
+				78C71C6217F18DF000B71C64 /* EMSViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		78C71C5117F18DF000B71C64 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				78C71C5217F18DF000B71C64 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		78C71C6317F18DF000B71C64 /* EMSViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				78C71C6417F18DF000B71C64 /* en */,
+			);
+			name = EMSViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		78C71C6617F18DF000B71C64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		78C71C6717F18DF000B71C64 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		78C71C6917F18DF000B71C64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Employee/Employee-Prefix.pch";
+				INFOPLIST_FILE = "Employee/Employee-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		78C71C6A17F18DF000B71C64 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Employee/Employee-Prefix.pch";
+				INFOPLIST_FILE = "Employee/Employee-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		78C71C3E17F18DF000B71C64 /* Build configuration list for PBXProject "Employee" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78C71C6617F18DF000B71C64 /* Debug */,
+				78C71C6717F18DF000B71C64 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		78C71C6817F18DF000B71C64 /* Build configuration list for PBXNativeTarget "Employee" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78C71C6917F18DF000B71C64 /* Debug */,
+				78C71C6A17F18DF000B71C64 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 78C71C3B17F18DF000B71C64 /* Project object */;
+}
