@@ -13,7 +13,7 @@
 @interface EMSAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong,nonatomic) UINavigationController *navController;
 @property (strong, nonatomic) EMSViewController *viewController;
 
 @end

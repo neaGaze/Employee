@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78518A4D17F1B90200D6C768 /* EmployeeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78518A4C17F1B90200D6C768 /* EmployeeCell.xib */; };
+		78802BF717F1961F0062C1A1 /* EmployeeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78802BF617F1961F0062C1A1 /* EmployeeCell.m */; };
+		78802BFE17F19A190062C1A1 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = 78802BFD17F19A190062C1A1 /* Employee.m */; };
+		78802C0217F19ABF0062C1A1 /* Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = 78802C0117F19ABF0062C1A1 /* Connection.m */; };
+		78A57EB117F2AEBC0056BEE7 /* EmployeeEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A57EAF17F2AEBC0056BEE7 /* EmployeeEditController.m */; };
+		78A57EB517F2AF900056BEE7 /* EmployeeEditController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78A57EB417F2AF900056BEE7 /* EmployeeEditController.storyboard */; };
 		78C71C4917F18DF000B71C64 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C71C4817F18DF000B71C64 /* UIKit.framework */; };
 		78C71C4B17F18DF000B71C64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C71C4A17F18DF000B71C64 /* Foundation.framework */; };
 		78C71C4D17F18DF000B71C64 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C71C4C17F18DF000B71C64 /* CoreGraphics.framework */; };
@@ -18,9 +24,21 @@
 		78C71C5F17F18DF000B71C64 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 78C71C5E17F18DF000B71C64 /* Default-568h@2x.png */; };
 		78C71C6217F18DF000B71C64 /* EMSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78C71C6117F18DF000B71C64 /* EMSViewController.m */; };
 		78C71C6517F18DF000B71C64 /* EMSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78C71C6317F18DF000B71C64 /* EMSViewController.xib */; };
+		78C71C6F17F1902C00B71C64 /* EmployeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78C71C6D17F1902C00B71C64 /* EmployeeViewController.m */; };
+		78C71C7017F1902C00B71C64 /* EmployeeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78C71C6E17F1902C00B71C64 /* EmployeeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		78518A4C17F1B90200D6C768 /* EmployeeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeeCell.xib; sourceTree = "<group>"; };
+		78802BF517F1961F0062C1A1 /* EmployeeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeeCell.h; sourceTree = "<group>"; };
+		78802BF617F1961F0062C1A1 /* EmployeeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmployeeCell.m; sourceTree = "<group>"; };
+		78802BFC17F19A190062C1A1 /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
+		78802BFD17F19A190062C1A1 /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Employee.m; sourceTree = "<group>"; };
+		78802C0017F19ABF0062C1A1 /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connection.h; sourceTree = "<group>"; };
+		78802C0117F19ABF0062C1A1 /* Connection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connection.m; sourceTree = "<group>"; };
+		78A57EAE17F2AEBC0056BEE7 /* EmployeeEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeeEditController.h; sourceTree = "<group>"; };
+		78A57EAF17F2AEBC0056BEE7 /* EmployeeEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmployeeEditController.m; sourceTree = "<group>"; };
+		78A57EB417F2AF900056BEE7 /* EmployeeEditController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EmployeeEditController.storyboard; sourceTree = "<group>"; };
 		78C71C4417F18DF000B71C64 /* Employee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Employee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C71C4817F18DF000B71C64 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		78C71C4A17F18DF000B71C64 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -34,9 +52,12 @@
 		78C71C5A17F18DF000B71C64 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		78C71C5C17F18DF000B71C64 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		78C71C5E17F18DF000B71C64 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		78C71C6017F18DF000B71C64 /* EMSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EMSViewController.h; sourceTree = "<group>"; };
-		78C71C6117F18DF000B71C64 /* EMSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EMSViewController.m; sourceTree = "<group>"; };
+		78C71C6017F18DF000B71C64 /* EMSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EMSViewController.h; path = Employee/EMSViewController.h; sourceTree = "<group>"; };
+		78C71C6117F18DF000B71C64 /* EMSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EMSViewController.m; path = Employee/EMSViewController.m; sourceTree = "<group>"; };
 		78C71C6417F18DF000B71C64 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/EMSViewController.xib; sourceTree = "<group>"; };
+		78C71C6C17F1902C00B71C64 /* EmployeeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeeViewController.h; sourceTree = "<group>"; };
+		78C71C6D17F1902C00B71C64 /* EmployeeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmployeeViewController.m; sourceTree = "<group>"; };
+		78C71C6E17F1902C00B71C64 /* EmployeeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeeViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,9 +74,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		78802BFB17F199B90062C1A1 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				78802BFC17F19A190062C1A1 /* Employee.h */,
+				78802BFD17F19A190062C1A1 /* Employee.m */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
+		78802BFF17F19A670062C1A1 /* HttpConnection */ = {
+			isa = PBXGroup;
+			children = (
+				78802C0017F19ABF0062C1A1 /* Connection.h */,
+				78802C0117F19ABF0062C1A1 /* Connection.m */,
+			);
+			name = HttpConnection;
+			sourceTree = "<group>";
+		};
 		78C71C3917F18DF000B71C64 = {
 			isa = PBXGroup;
 			children = (
+				78802BFF17F19A670062C1A1 /* HttpConnection */,
+				78802BFB17F199B90062C1A1 /* Entity */,
+				78C71C6B17F18DFE00B71C64 /* Controller */,
 				78C71C4E17F18DF000B71C64 /* Employee */,
 				78C71C4717F18DF000B71C64 /* Frameworks */,
 				78C71C4517F18DF000B71C64 /* Products */,
@@ -85,9 +127,6 @@
 			children = (
 				78C71C5717F18DF000B71C64 /* EMSAppDelegate.h */,
 				78C71C5817F18DF000B71C64 /* EMSAppDelegate.m */,
-				78C71C6017F18DF000B71C64 /* EMSViewController.h */,
-				78C71C6117F18DF000B71C64 /* EMSViewController.m */,
-				78C71C6317F18DF000B71C64 /* EMSViewController.xib */,
 				78C71C4F17F18DF000B71C64 /* Supporting Files */,
 			);
 			path = Employee;
@@ -105,6 +144,25 @@
 				78C71C5E17F18DF000B71C64 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		78C71C6B17F18DFE00B71C64 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				78C71C6017F18DF000B71C64 /* EMSViewController.h */,
+				78C71C6117F18DF000B71C64 /* EMSViewController.m */,
+				78C71C6317F18DF000B71C64 /* EMSViewController.xib */,
+				78C71C6C17F1902C00B71C64 /* EmployeeViewController.h */,
+				78C71C6D17F1902C00B71C64 /* EmployeeViewController.m */,
+				78C71C6E17F1902C00B71C64 /* EmployeeViewController.xib */,
+				78802BF517F1961F0062C1A1 /* EmployeeCell.h */,
+				78802BF617F1961F0062C1A1 /* EmployeeCell.m */,
+				78518A4C17F1B90200D6C768 /* EmployeeCell.xib */,
+				78A57EAE17F2AEBC0056BEE7 /* EmployeeEditController.h */,
+				78A57EAF17F2AEBC0056BEE7 /* EmployeeEditController.m */,
+				78A57EB417F2AF900056BEE7 /* EmployeeEditController.storyboard */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +222,9 @@
 				78C71C5D17F18DF000B71C64 /* Default@2x.png in Resources */,
 				78C71C5F17F18DF000B71C64 /* Default-568h@2x.png in Resources */,
 				78C71C6517F18DF000B71C64 /* EMSViewController.xib in Resources */,
+				78C71C7017F1902C00B71C64 /* EmployeeViewController.xib in Resources */,
+				78518A4D17F1B90200D6C768 /* EmployeeCell.xib in Resources */,
+				78A57EB517F2AF900056BEE7 /* EmployeeEditController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +238,11 @@
 				78C71C5517F18DF000B71C64 /* main.m in Sources */,
 				78C71C5917F18DF000B71C64 /* EMSAppDelegate.m in Sources */,
 				78C71C6217F18DF000B71C64 /* EMSViewController.m in Sources */,
+				78C71C6F17F1902C00B71C64 /* EmployeeViewController.m in Sources */,
+				78802BF717F1961F0062C1A1 /* EmployeeCell.m in Sources */,
+				78802BFE17F19A190062C1A1 /* Employee.m in Sources */,
+				78802C0217F19ABF0062C1A1 /* Connection.m in Sources */,
+				78A57EB117F2AEBC0056BEE7 /* EmployeeEditController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +263,7 @@
 				78C71C6417F18DF000B71C64 /* en */,
 			);
 			name = EMSViewController.xib;
+			path = Employee;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -295,6 +362,7 @@
 				78C71C6A17F18DF000B71C64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

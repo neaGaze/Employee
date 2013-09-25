@@ -11,13 +11,16 @@
 #import "EMSViewController.h"
 
 @implementation EMSAppDelegate
+@synthesize navController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[EMSViewController alloc] initWithNibName:@"EMSViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    self.navController = [[UINavigationController alloc] initWithRootViewController:[self viewController]];
+    self.window.rootViewController = self.navController;
+ //   [self.window addSubview:[[self navController] view]];
     [self.window makeKeyAndVisible];
     return YES;
 }
