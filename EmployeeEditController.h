@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "Employee.h"
+#import "Connection.h"
 
-@interface EmployeeEditController : UITableViewController
+@interface EmployeeEditController : UITableViewController<UIPickerViewDataSource,UIPickerViewDelegate>
 
+@property (strong,nonatomic) Connection *connection;
+@property (strong, nonatomic) IBOutlet UIPickerView *pickerView;
+@property (strong, nonatomic) IBOutlet UIButton *qualificationButton;
+@property (strong, nonatomic) IBOutlet UILabel *qualificationLabel;
+@property (strong, nonatomic) IBOutlet UILabel *gpaLabel;
+@property (strong, nonatomic) IBOutlet UISlider *gpaSlider;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *empGender;
 @property (strong, nonatomic) IBOutlet UITextField *empRemarks;
 @property (strong, nonatomic) IBOutlet UITextField *empDesignation;
@@ -22,8 +29,12 @@
 @property (strong, nonatomic) IBOutlet UITextField *empAddr;
 @property (strong, nonatomic) IBOutlet UITextField *empName;
 
+@property(strong,nonatomic) NSArray *qualificationList;
 @property (strong,nonatomic) Employee *emp;
 
 -(IBAction)didGenderChange:(id)sender;
 -(IBAction)toggleSwitch:(id)sender;
+-(IBAction)sliderValueChanged:(id)sender;
+-(IBAction)showPicker;
+-(void)editEmployee;
 @end

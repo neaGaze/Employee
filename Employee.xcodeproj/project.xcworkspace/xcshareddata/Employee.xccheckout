@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>34FA7D0F-7C4C-4738-B503-89D2B737E0E7</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Employee</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DD7D5380-9F1C-4095-B015-D4C2C84D1BC8</key>
+		<string>https://github.com/neaGaze/Employee.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Employee.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DD7D5380-9F1C-4095-B015-D4C2C84D1BC8</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/neaGaze/Employee.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DD7D5380-9F1C-4095-B015-D4C2C84D1BC8</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DD7D5380-9F1C-4095-B015-D4C2C84D1BC8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Employee</string>
+		</dict>
+	</array>
+</dict>
+</plist>

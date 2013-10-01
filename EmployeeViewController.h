@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Employee.h"
+#import "Connection.h"
 
 @interface EmployeeViewController : UIViewController
-
+{
+    Connection *connec;
+}
 @property (nonatomic,strong) IBOutlet UILabel *name;
 @property (nonatomic,strong) IBOutlet UILabel *address;
 @property (nonatomic,strong) IBOutlet UILabel *gender;
@@ -22,4 +25,5 @@
 @property (nonatomic,retain) Employee *employee;
 
 -(void)gotoEdit;
+-(void)reloadView:(NSNotification *)notification;
 @end

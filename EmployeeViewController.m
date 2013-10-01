@@ -8,6 +8,7 @@
 
 #import "EmployeeViewController.h"
 #import "EmployeeEditController.h"
+#import "EMSViewController.h"
 
 @interface EmployeeViewController ()
 
@@ -16,6 +17,8 @@
 @implementation EmployeeViewController
 @synthesize name,address,email,gender,designation,remarks,homePhone,mobile;
 @synthesize employee;
+
+NSDictionary *idReceiver;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,6 +34,28 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    name.text = [employee empName];
+    address.text = [employee empAddress];
+    email.text = [employee email];
+    gender.text = [employee gender];
+    mobile.text = [NSString stringWithFormat:@"%@",[employee mobile]];
+    homePhone.text = [NSString stringWithFormat:@"%@",[employee homePhone]];
+    designation.text = [employee designation];
+    remarks.text = [employee remarks];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(gotoEdit)];
+    
+}
+
+/** prepare for the view to be resumed **/
+-(void)viewWillAppear:(BOOL)animated{
+    NSLog(@"Employee View is gonna appear again");
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadView:) name:@"editResultNotification" object:nil];
+}
+
+/** Like the activity resume in android **/
+-(void)viewDidAppear:(BOOL)animated
+{
     name.text = [employee empName];
     address.text = [employee empAddress];
     email.text = [employee email];
@@ -57,5 +82,25 @@
     editController.emp = employee;
     [[self navigationController] pushViewController:editController animated:YES];
 }
+
+-(void)reloadView:(NSNotification *) notification {
+    NSLog(@"Call vayo jasto xa");
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    idReceiver = [notification.userInfo copy];
+    NSNumber *i = [notification.userInfo objectForKey:@"id"];
+    NSLog(@"emp Id: %@",i);
+    
+    connec = [Connection init];
+    NSString *getEmployeeUrl = @"GetEmployeeList";
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"1bde13e5-65cd-425b-b1ce-ffaf2ce54269",@"userLoginId",@"20130706101010",@"modifiedDateTime", nil];
+    NSData *dataReceived = [connec startHTTP:getEmployeeUrl dictionaryForQuery:dict];
+    [connec receiveData:dataReceived];
+    
+    int k = [EMSViewController currentRow];
+    employee = [connec employees][k] ;
+     //[self r];
+    
+}
+
 
 @end

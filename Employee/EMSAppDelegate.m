@@ -11,7 +11,7 @@
 #import "EMSViewController.h"
 
 @implementation EMSAppDelegate
-@synthesize navController;
+@synthesize navController,empViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -19,6 +19,7 @@
     // Override point for customization after application launch.
     self.viewController = [[EMSViewController alloc] initWithNibName:@"EMSViewController" bundle:nil];
     self.navController = [[UINavigationController alloc] initWithRootViewController:[self viewController]];
+    self.navController.navigationBar.translucent = NO;
     self.window.rootViewController = self.navController;
  //   [self.window addSubview:[[self navController] view]];
     [self.window makeKeyAndVisible];
@@ -45,11 +46,24 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+
+//    NSLog(@"Application become active");
+//    if([self.navController.visibleViewController.title isKindOfClass:[EmployeeViewController class]])
+//    {
+//        empViewController = (EmployeeViewController *)self.navController.visibleViewController;
+//        [empViewController reloadView];
+//    }
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+//-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"UIApplicationDidBecomeActiveNotification" object:self userInfo:userInfo];
+//}
+
 
 @end

@@ -194,6 +194,11 @@
 				CLASSPREFIX = EMS;
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = STC;
+				TargetAttributes = {
+					78C71C4317F18DF000B71C64 = {
+						DevelopmentTeam = Z4659G825T;
+					};
+				};
 			};
 			buildConfigurationList = 78C71C3E17F18DF000B71C64 /* Build configuration list for PBXProject "Employee" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -324,10 +329,13 @@
 		78C71C6917F18DF000B71C64 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Employee/Employee-Prefix.pch";
 				INFOPLIST_FILE = "Employee/Employee-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -335,10 +343,13 @@
 		78C71C6A17F18DF000B71C64 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Employee/Employee-Prefix.pch";
 				INFOPLIST_FILE = "Employee/Employee-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

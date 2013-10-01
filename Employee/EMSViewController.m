@@ -10,8 +10,10 @@
 #import "EmployeeCell.h"
 
 @interface EMSViewController ()
-
+    
 @end
+
+static int *rowSelected;
 
 @implementation EMSViewController
 @synthesize empViewController;
@@ -21,6 +23,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
+        self.edgesForExtendedLayout = UIRectEdgeNone;   // iOS 7 specific
     self.title = @"Employees";
     [self callConnection];
     
@@ -92,7 +96,7 @@
         self.empViewController = [[EmployeeViewController alloc] initWithNibName:@"EmployeeViewController" bundle:nil];
     self.empViewController.employee = [arrOfEmp objectAtIndex:indexPath.row];
         [[self navigationController] pushViewController:empViewController animated:YES];
-    
+    rowSelected = indexPath.row;
     [tableView1 deselectRowAtIndexPath:indexPath animated:YES];
     
 }
@@ -160,6 +164,10 @@ shouldReloadTableForSearchString:(NSString *)searchString
     // [conn receiveData:dataReceived];
     NSString *stringData = [[NSString alloc] initWithData:dataReceived encoding:NSUTF8StringEncoding];
     NSLog(@"delete Result: %@",stringData);
+}
+
++(int)currentRow{
+    return rowSelected;
 }
 
 @end

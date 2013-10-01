@@ -22,5 +22,5 @@
 @property(strong,nonatomic) EmployeeViewController *empViewController;
 
 -(void)deleteEmployee:(Employee *)delEmp;
-
++(int)currentRow;
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EmployeeViewController.h"
 
 @class EMSViewController;
 
@@ -15,5 +16,5 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong,nonatomic) UINavigationController *navController;
 @property (strong, nonatomic) EMSViewController *viewController;
-
+@property(strong,nonatomic) EmployeeViewController *empViewController;
 @end
