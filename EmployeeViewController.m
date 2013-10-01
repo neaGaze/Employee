@@ -98,7 +98,7 @@ NSDictionary *idReceiver;
     
     int k = [EMSViewController currentRow];
     employee = [connec employees][k] ;
-     //[self r];
+     //[self r]; Employee View page updated after editing and back button pressed
     
 }
 
