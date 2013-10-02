@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1889B92B17FAC7F600A2C328 /* checkbox_not_ticked.png in Resources */ = {isa = PBXBuildFile; fileRef = 1889B92917FAC7F600A2C328 /* checkbox_not_ticked.png */; };
+		1889B92C17FAC7F600A2C328 /* checkbox_ticked.png in Resources */ = {isa = PBXBuildFile; fileRef = 1889B92A17FAC7F600A2C328 /* checkbox_ticked.png */; };
+		1889B92F17FAD13500A2C328 /* CheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 1889B92E17FAD13500A2C328 /* CheckBox.m */; };
 		78518A4D17F1B90200D6C768 /* EmployeeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78518A4C17F1B90200D6C768 /* EmployeeCell.xib */; };
 		78802BF717F1961F0062C1A1 /* EmployeeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78802BF617F1961F0062C1A1 /* EmployeeCell.m */; };
 		78802BFE17F19A190062C1A1 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = 78802BFD17F19A190062C1A1 /* Employee.m */; };
@@ -29,6 +32,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1889B92917FAC7F600A2C328 /* checkbox_not_ticked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkbox_not_ticked.png; path = ../../../Desktop/checkbox_not_ticked.png; sourceTree = "<group>"; };
+		1889B92A17FAC7F600A2C328 /* checkbox_ticked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkbox_ticked.png; path = ../../../Desktop/checkbox_ticked.png; sourceTree = "<group>"; };
+		1889B92D17FAD13500A2C328 /* CheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBox.h; sourceTree = "<group>"; };
+		1889B92E17FAD13500A2C328 /* CheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckBox.m; sourceTree = "<group>"; };
 		78518A4C17F1B90200D6C768 /* EmployeeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeeCell.xib; sourceTree = "<group>"; };
 		78802BF517F1961F0062C1A1 /* EmployeeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeeCell.h; sourceTree = "<group>"; };
 		78802BF617F1961F0062C1A1 /* EmployeeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmployeeCell.m; sourceTree = "<group>"; };
@@ -74,6 +81,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1889B92817FAC77D00A2C328 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				1889B92917FAC7F600A2C328 /* checkbox_not_ticked.png */,
+				1889B92A17FAC7F600A2C328 /* checkbox_ticked.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		78802BFB17F199B90062C1A1 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +111,7 @@
 		78C71C3917F18DF000B71C64 = {
 			isa = PBXGroup;
 			children = (
+				1889B92817FAC77D00A2C328 /* images */,
 				78802BFF17F19A670062C1A1 /* HttpConnection */,
 				78802BFB17F199B90062C1A1 /* Entity */,
 				78C71C6B17F18DFE00B71C64 /* Controller */,
@@ -161,6 +178,8 @@
 				78A57EAE17F2AEBC0056BEE7 /* EmployeeEditController.h */,
 				78A57EAF17F2AEBC0056BEE7 /* EmployeeEditController.m */,
 				78A57EB417F2AF900056BEE7 /* EmployeeEditController.storyboard */,
+				1889B92D17FAD13500A2C328 /* CheckBox.h */,
+				1889B92E17FAD13500A2C328 /* CheckBox.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -222,6 +241,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1889B92C17FAC7F600A2C328 /* checkbox_ticked.png in Resources */,
+				1889B92B17FAC7F600A2C328 /* checkbox_not_ticked.png in Resources */,
 				78C71C5317F18DF000B71C64 /* InfoPlist.strings in Resources */,
 				78C71C5B17F18DF000B71C64 /* Default.png in Resources */,
 				78C71C5D17F18DF000B71C64 /* Default@2x.png in Resources */,
@@ -245,6 +266,7 @@
 				78C71C6217F18DF000B71C64 /* EMSViewController.m in Sources */,
 				78C71C6F17F1902C00B71C64 /* EmployeeViewController.m in Sources */,
 				78802BF717F1961F0062C1A1 /* EmployeeCell.m in Sources */,
+				1889B92F17FAD13500A2C328 /* CheckBox.m in Sources */,
 				78802BFE17F19A190062C1A1 /* Employee.m in Sources */,
 				78802C0217F19ABF0062C1A1 /* Connection.m in Sources */,
 				78A57EB117F2AEBC0056BEE7 /* EmployeeEditController.m in Sources */,

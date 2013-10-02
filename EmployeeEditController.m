@@ -17,7 +17,7 @@
 @synthesize connection;
 @synthesize emp,empName,empAddr,empEmail,empMobile,empDesignation,empHomePhone,empRemarks,empGender;
 @synthesize relationship, relationshipLabel, gpaSlider, gpaLabel, qualificationButton, qualificationLabel;
-@synthesize qualificationList, pickerView;
+@synthesize qualificationList, pickerView, chkBox, ios, xml, json;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -168,4 +168,16 @@
   //  [self.navigationController popViewControllerAnimated:YES];
 }
 
+-(IBAction)checked{
+    [chkBox checkBoxClicked];
+}
+-(IBAction)checked1{
+    [ios checkBoxClicked];
+}
+-(IBAction)checked2{
+    [xml checkBoxClicked];
+}
+-(IBAction)checked3{
+    [json checkBoxClicked];
+}
 @end

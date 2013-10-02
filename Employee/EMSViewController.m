@@ -37,6 +37,16 @@ static int *rowSelected;
     }
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self becomeFirstResponder];
+    [super viewWillAppear:animated];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [self resignFirstResponder];
+    [super viewWillDisappear:animated];
+}
+
 /** Call the httpConnection to the web service **/
 - (void)callConnection{
     //conn = [[Connection alloc] init];
@@ -168,6 +178,18 @@ shouldReloadTableForSearchString:(NSString *)searchString
 
 +(int)currentRow{
     return rowSelected;
+}
+
+-(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
+    if(event.subtype == UIEventSubtypeMotionShake){
+        NSLog(@"Shake detected!!!!");
+    }
+    if([super respondsToSelector:@selector(motionEnded:withEvent:)])
+        [super motionEnded:motion withEvent:event];
+}
+
+-(BOOL)canBecomeFirstResponder{
+    return YES;
 }
 
 @end

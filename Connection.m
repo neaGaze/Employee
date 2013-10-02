@@ -29,7 +29,7 @@
 /** Startup a connection with the webservice and  **/
 -(NSData *)startHTTP:(NSString *)url dictionaryForQuery:(NSDictionary *)dictionary
 {
-    NSMutableString *fullUrl = [NSString stringWithFormat:@"http://192.168.100.2/EMSWebService/Service1.svc/json/%@",url];
+    NSMutableString *fullUrl = [NSMutableString stringWithFormat:@"http://192.168.100.2/EMSWebService/Service1.svc/json/%@",url];
     employees = [[NSMutableArray alloc] init];
     
     // Create the request.

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Employee.h"
 #import "Connection.h"
+#import "CheckBox.h"
 
 @interface EmployeeEditController : UITableViewController<UIPickerViewDataSource,UIPickerViewDelegate>
 
@@ -28,6 +29,10 @@
 @property (strong, nonatomic) IBOutlet UITextField *empEmail;
 @property (strong, nonatomic) IBOutlet UITextField *empAddr;
 @property (strong, nonatomic) IBOutlet UITextField *empName;
+@property(strong,nonatomic) IBOutlet CheckBox *chkBox;
+@property(strong,nonatomic) IBOutlet CheckBox *ios;
+@property(strong,nonatomic) IBOutlet CheckBox *xml;
+@property(strong,nonatomic) IBOutlet CheckBox *json;
 
 @property(strong,nonatomic) NSArray *qualificationList;
 @property (strong,nonatomic) Employee *emp;
@@ -36,5 +41,9 @@
 -(IBAction)toggleSwitch:(id)sender;
 -(IBAction)sliderValueChanged:(id)sender;
 -(IBAction)showPicker;
+-(IBAction)checked;
+-(IBAction)checked1;
+-(IBAction)checked2;
+-(IBAction)checked3;
 -(void)editEmployee;
 @end

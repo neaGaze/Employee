@@ -9,12 +9,18 @@
 #import "EMSAppDelegate.h"
 
 #import "EMSViewController.h"
+#import "CheckBox.h"
 
 @implementation EMSAppDelegate
 @synthesize navController,empViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //Initializing the custom checkbox
+    CheckBox *checkbox = [[CheckBox alloc] initWithFrame:CGRectMake(100, 200, 150, 25)];
+    [checkbox setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [checkbox setTitle:@"CheckBox" forState:UIControlStateNormal];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[EMSViewController alloc] initWithNibName:@"EMSViewController" bundle:nil];
@@ -22,6 +28,7 @@
     self.navController.navigationBar.translucent = NO;
     self.window.rootViewController = self.navController;
  //   [self.window addSubview:[[self navController] view]];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
