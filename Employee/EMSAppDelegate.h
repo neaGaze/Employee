@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "EmployeeViewController.h"
+#import "GridViewController.h"
 
 @class EMSViewController;
 
@@ -17,4 +18,5 @@
 @property (strong,nonatomic) UINavigationController *navController;
 @property (strong, nonatomic) EMSViewController *viewController;
 @property(strong,nonatomic) EmployeeViewController *empViewController;
+@property(strong,nonatomic) GridViewController *gridController;
 @end

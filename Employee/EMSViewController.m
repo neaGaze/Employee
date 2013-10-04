@@ -88,7 +88,11 @@ static int *rowSelected;
     }
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
+   
+//    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cellBackground.png"]];
+//    imageView.frame = CGRectMake(0, 78*indexPath.row, 320, cell.frame.size.height);
+//    [tableView addSubview:imageView];
+//    [tableView sendSubviewToBack:imageView];
     return cell;
 }
 
@@ -103,7 +107,7 @@ static int *rowSelected;
 /** When the table row is selected **/
 -(void)tableView:(UITableView *)tableView1 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-        self.empViewController = [[EmployeeViewController alloc] initWithNibName:@"EmployeeViewController" bundle:nil];
+    self.empViewController = [[EmployeeViewController alloc] initWithNibName:@"EmployeeViewController" bundle:nil];
     self.empViewController.employee = [arrOfEmp objectAtIndex:indexPath.row];
         [[self navigationController] pushViewController:empViewController animated:YES];
     rowSelected = indexPath.row;
@@ -153,9 +157,12 @@ shouldReloadTableForSearchString:(NSString *)searchString
 
 /* For editing the table row. Now we implement the delete */
 - (void)tableView:(UITableView *)tableView1 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"Delete Employee gesture detected at %d",indexPath.row);
-    [self deleteEmployee:[arrOfEmp objectAtIndex:indexPath.row]];
-    [tableView1 reloadData];
+ 
+    if(editingStyle == UITableViewCellEditingStyleDelete){
+        NSLog(@"Delete Employee gesture detected at %d",indexPath.row);
+        [self deleteEmployee:[arrOfEmp objectAtIndex:indexPath.row]];
+        [tableView1 reloadData];
+    }
 }
 
 /** To perform delete operation **/

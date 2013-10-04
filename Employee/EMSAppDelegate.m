@@ -9,10 +9,11 @@
 #import "EMSAppDelegate.h"
 
 #import "EMSViewController.h"
+#import "GridViewController.h"
 #import "CheckBox.h"
 
 @implementation EMSAppDelegate
-@synthesize navController,empViewController;
+@synthesize navController,empViewController, gridController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -23,8 +24,9 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[EMSViewController alloc] initWithNibName:@"EMSViewController" bundle:nil];
-    self.navController = [[UINavigationController alloc] initWithRootViewController:[self viewController]];
+  //  self.viewController = [[EMSViewController alloc] initWithNibName:@"EMSViewController" bundle:nil];
+    self.gridController = [[GridViewController alloc] initWithNibName:@"GridViewController" bundle:nil];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:[self gridController]];
     self.navController.navigationBar.translucent = NO;
     self.window.rootViewController = self.navController;
  //   [self.window addSubview:[[self navController] view]];

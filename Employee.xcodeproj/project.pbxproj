@@ -10,6 +10,11 @@
 		1889B92B17FAC7F600A2C328 /* checkbox_not_ticked.png in Resources */ = {isa = PBXBuildFile; fileRef = 1889B92917FAC7F600A2C328 /* checkbox_not_ticked.png */; };
 		1889B92C17FAC7F600A2C328 /* checkbox_ticked.png in Resources */ = {isa = PBXBuildFile; fileRef = 1889B92A17FAC7F600A2C328 /* checkbox_ticked.png */; };
 		1889B92F17FAD13500A2C328 /* CheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 1889B92E17FAD13500A2C328 /* CheckBox.m */; };
+		18967E0417FEA00900FAF88F /* GridViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18967E0217FEA00900FAF88F /* GridViewController.xib */; };
+		18967E0717FEA1F900FAF88F /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18967E0617FEA1F900FAF88F /* GridViewController.m */; };
+		18967E0A17FEA3D200FAF88F /* GridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18967E0917FEA3D200FAF88F /* GridCell.m */; };
+		18967E0C17FEA40F00FAF88F /* GridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18967E0B17FEA40F00FAF88F /* GridCell.xib */; };
+		18967E0F17FEDD5100FAF88F /* CustomGridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 18967E0E17FEDD5100FAF88F /* CustomGridLayout.m */; };
 		78518A4D17F1B90200D6C768 /* EmployeeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78518A4C17F1B90200D6C768 /* EmployeeCell.xib */; };
 		78802BF717F1961F0062C1A1 /* EmployeeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78802BF617F1961F0062C1A1 /* EmployeeCell.m */; };
 		78802BFE17F19A190062C1A1 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = 78802BFD17F19A190062C1A1 /* Employee.m */; };
@@ -36,6 +41,14 @@
 		1889B92A17FAC7F600A2C328 /* checkbox_ticked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkbox_ticked.png; path = ../../../Desktop/checkbox_ticked.png; sourceTree = "<group>"; };
 		1889B92D17FAD13500A2C328 /* CheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBox.h; sourceTree = "<group>"; };
 		1889B92E17FAD13500A2C328 /* CheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckBox.m; sourceTree = "<group>"; };
+		18967E0217FEA00900FAF88F /* GridViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GridViewController.xib; sourceTree = "<group>"; };
+		18967E0517FEA1F900FAF88F /* GridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridViewController.h; sourceTree = "<group>"; };
+		18967E0617FEA1F900FAF88F /* GridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridViewController.m; sourceTree = "<group>"; };
+		18967E0817FEA3D200FAF88F /* GridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridCell.h; sourceTree = "<group>"; };
+		18967E0917FEA3D200FAF88F /* GridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridCell.m; sourceTree = "<group>"; };
+		18967E0B17FEA40F00FAF88F /* GridCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GridCell.xib; sourceTree = "<group>"; };
+		18967E0D17FEDD5100FAF88F /* CustomGridLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomGridLayout.h; sourceTree = "<group>"; };
+		18967E0E17FEDD5100FAF88F /* CustomGridLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomGridLayout.m; sourceTree = "<group>"; };
 		78518A4C17F1B90200D6C768 /* EmployeeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeeCell.xib; sourceTree = "<group>"; };
 		78802BF517F1961F0062C1A1 /* EmployeeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeeCell.h; sourceTree = "<group>"; };
 		78802BF617F1961F0062C1A1 /* EmployeeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmployeeCell.m; sourceTree = "<group>"; };
@@ -180,6 +193,14 @@
 				78A57EB417F2AF900056BEE7 /* EmployeeEditController.storyboard */,
 				1889B92D17FAD13500A2C328 /* CheckBox.h */,
 				1889B92E17FAD13500A2C328 /* CheckBox.m */,
+				18967E0217FEA00900FAF88F /* GridViewController.xib */,
+				18967E0517FEA1F900FAF88F /* GridViewController.h */,
+				18967E0617FEA1F900FAF88F /* GridViewController.m */,
+				18967E0817FEA3D200FAF88F /* GridCell.h */,
+				18967E0917FEA3D200FAF88F /* GridCell.m */,
+				18967E0B17FEA40F00FAF88F /* GridCell.xib */,
+				18967E0D17FEDD5100FAF88F /* CustomGridLayout.h */,
+				18967E0E17FEDD5100FAF88F /* CustomGridLayout.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -244,9 +265,11 @@
 				1889B92C17FAC7F600A2C328 /* checkbox_ticked.png in Resources */,
 				1889B92B17FAC7F600A2C328 /* checkbox_not_ticked.png in Resources */,
 				78C71C5317F18DF000B71C64 /* InfoPlist.strings in Resources */,
+				18967E0417FEA00900FAF88F /* GridViewController.xib in Resources */,
 				78C71C5B17F18DF000B71C64 /* Default.png in Resources */,
 				78C71C5D17F18DF000B71C64 /* Default@2x.png in Resources */,
 				78C71C5F17F18DF000B71C64 /* Default-568h@2x.png in Resources */,
+				18967E0C17FEA40F00FAF88F /* GridCell.xib in Resources */,
 				78C71C6517F18DF000B71C64 /* EMSViewController.xib in Resources */,
 				78C71C7017F1902C00B71C64 /* EmployeeViewController.xib in Resources */,
 				78518A4D17F1B90200D6C768 /* EmployeeCell.xib in Resources */,
@@ -263,10 +286,13 @@
 			files = (
 				78C71C5517F18DF000B71C64 /* main.m in Sources */,
 				78C71C5917F18DF000B71C64 /* EMSAppDelegate.m in Sources */,
+				18967E0717FEA1F900FAF88F /* GridViewController.m in Sources */,
+				18967E0A17FEA3D200FAF88F /* GridCell.m in Sources */,
 				78C71C6217F18DF000B71C64 /* EMSViewController.m in Sources */,
 				78C71C6F17F1902C00B71C64 /* EmployeeViewController.m in Sources */,
 				78802BF717F1961F0062C1A1 /* EmployeeCell.m in Sources */,
 				1889B92F17FAD13500A2C328 /* CheckBox.m in Sources */,
+				18967E0F17FEDD5100FAF88F /* CustomGridLayout.m in Sources */,
 				78802BFE17F19A190062C1A1 /* Employee.m in Sources */,
 				78802C0217F19ABF0062C1A1 /* Connection.m in Sources */,
 				78A57EB117F2AEBC0056BEE7 /* EmployeeEditController.m in Sources */,
