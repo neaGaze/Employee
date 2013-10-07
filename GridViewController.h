@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomGridLayout.h"
+#import "EMSViewController.h"
 
 static NSString * const CellIdentifier = @"CustomGridCell";
 
 @interface GridViewController : UICollectionViewController<UICollectionViewDataSource,
-UICollectionViewDelegate>
+UICollectionViewDelegate, UIAlertViewDelegate>
 
 @property (strong,nonatomic) IBOutlet UICollectionView *collectionView;
 @property(strong,nonatomic) IBOutlet CustomGridLayout *customGridLayout;
+@property(strong,nonatomic) EMSViewController *mainViewController;
 @end

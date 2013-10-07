@@ -32,6 +32,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.view.backgroundColor = [UIColor colorWithWhite:0.25f alpha:1.0f];
     
     empName.text = [emp empName];
     empAddr.text = [emp empAddress];

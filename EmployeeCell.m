@@ -9,7 +9,7 @@
 #import "EmployeeCell.h"
 
 @implementation EmployeeCell
-@synthesize EmployeeAddress, EmployeeName;
+@synthesize EmployeeName,EmployeeAddress;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

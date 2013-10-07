@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface EmployeeCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UILabel *EmployeeAddress;
 @property (strong, nonatomic) IBOutlet UILabel *EmployeeName;
-
+@property (strong, nonatomic) IBOutlet UILabel *EmployeeAddress;
 @end

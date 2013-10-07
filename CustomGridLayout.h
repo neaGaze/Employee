@@ -10,8 +10,8 @@
 
 @interface CustomGridLayout : UICollectionViewLayout
 
-@property (nonatomic) UIEdgeInsets itemInsets;
-@property (nonatomic) CGSize itemSize;
+@property (nonatomic) UIEdgeInsets itemInsets; // something like margin in android layout
+@property (nonatomic) CGSize itemSize;  // width and height of the cell
 @property (nonatomic) CGFloat interItemSpacingY;
-@property (nonatomic) NSInteger numberOfColumns;
+@property (nonatomic) NSInteger numberOfColumns;    //number of columns in 1 row
 @end

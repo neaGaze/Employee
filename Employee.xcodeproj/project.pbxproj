@@ -10,6 +10,11 @@
 		1889B92B17FAC7F600A2C328 /* checkbox_not_ticked.png in Resources */ = {isa = PBXBuildFile; fileRef = 1889B92917FAC7F600A2C328 /* checkbox_not_ticked.png */; };
 		1889B92C17FAC7F600A2C328 /* checkbox_ticked.png in Resources */ = {isa = PBXBuildFile; fileRef = 1889B92A17FAC7F600A2C328 /* checkbox_ticked.png */; };
 		1889B92F17FAD13500A2C328 /* CheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 1889B92E17FAD13500A2C328 /* CheckBox.m */; };
+		188FA95418029609007D870C /* employee.png in Resources */ = {isa = PBXBuildFile; fileRef = 188FA95018029609007D870C /* employee.png */; };
+		188FA95518029609007D870C /* leave.png in Resources */ = {isa = PBXBuildFile; fileRef = 188FA95118029609007D870C /* leave.png */; };
+		188FA95618029609007D870C /* liverbird.png in Resources */ = {isa = PBXBuildFile; fileRef = 188FA95218029609007D870C /* liverbird.png */; };
+		188FA95718029609007D870C /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = 188FA95318029609007D870C /* message.png */; };
+		188FAA611802D6F1007D870C /* exit_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 188FAA601802D6F1007D870C /* exit_big.png */; };
 		18967E0417FEA00900FAF88F /* GridViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18967E0217FEA00900FAF88F /* GridViewController.xib */; };
 		18967E0717FEA1F900FAF88F /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18967E0617FEA1F900FAF88F /* GridViewController.m */; };
 		18967E0A17FEA3D200FAF88F /* GridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18967E0917FEA3D200FAF88F /* GridCell.m */; };
@@ -41,6 +46,11 @@
 		1889B92A17FAC7F600A2C328 /* checkbox_ticked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkbox_ticked.png; path = ../../../Desktop/checkbox_ticked.png; sourceTree = "<group>"; };
 		1889B92D17FAD13500A2C328 /* CheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBox.h; sourceTree = "<group>"; };
 		1889B92E17FAD13500A2C328 /* CheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckBox.m; sourceTree = "<group>"; };
+		188FA95018029609007D870C /* employee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = employee.png; sourceTree = "<group>"; };
+		188FA95118029609007D870C /* leave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leave.png; sourceTree = "<group>"; };
+		188FA95218029609007D870C /* liverbird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = liverbird.png; sourceTree = "<group>"; };
+		188FA95318029609007D870C /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message.png; sourceTree = "<group>"; };
+		188FAA601802D6F1007D870C /* exit_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exit_big.png; sourceTree = "<group>"; };
 		18967E0217FEA00900FAF88F /* GridViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GridViewController.xib; sourceTree = "<group>"; };
 		18967E0517FEA1F900FAF88F /* GridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridViewController.h; sourceTree = "<group>"; };
 		18967E0617FEA1F900FAF88F /* GridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridViewController.m; sourceTree = "<group>"; };
@@ -97,6 +107,11 @@
 		1889B92817FAC77D00A2C328 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				188FAA601802D6F1007D870C /* exit_big.png */,
+				188FA95018029609007D870C /* employee.png */,
+				188FA95118029609007D870C /* leave.png */,
+				188FA95218029609007D870C /* liverbird.png */,
+				188FA95318029609007D870C /* message.png */,
 				1889B92917FAC7F600A2C328 /* checkbox_not_ticked.png */,
 				1889B92A17FAC7F600A2C328 /* checkbox_ticked.png */,
 			);
@@ -265,15 +280,20 @@
 				1889B92C17FAC7F600A2C328 /* checkbox_ticked.png in Resources */,
 				1889B92B17FAC7F600A2C328 /* checkbox_not_ticked.png in Resources */,
 				78C71C5317F18DF000B71C64 /* InfoPlist.strings in Resources */,
+				188FA95718029609007D870C /* message.png in Resources */,
 				18967E0417FEA00900FAF88F /* GridViewController.xib in Resources */,
 				78C71C5B17F18DF000B71C64 /* Default.png in Resources */,
 				78C71C5D17F18DF000B71C64 /* Default@2x.png in Resources */,
 				78C71C5F17F18DF000B71C64 /* Default-568h@2x.png in Resources */,
+				188FAA611802D6F1007D870C /* exit_big.png in Resources */,
 				18967E0C17FEA40F00FAF88F /* GridCell.xib in Resources */,
 				78C71C6517F18DF000B71C64 /* EMSViewController.xib in Resources */,
 				78C71C7017F1902C00B71C64 /* EmployeeViewController.xib in Resources */,
 				78518A4D17F1B90200D6C768 /* EmployeeCell.xib in Resources */,
 				78A57EB517F2AF900056BEE7 /* EmployeeEditController.storyboard in Resources */,
+				188FA95618029609007D870C /* liverbird.png in Resources */,
+				188FA95418029609007D870C /* employee.png in Resources */,
+				188FA95518029609007D870C /* leave.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

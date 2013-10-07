@@ -10,4 +10,5 @@
 
 @interface GridCell : UICollectionViewCell
 
+@property(strong,nonatomic) UIImageView *imgView;
 @end

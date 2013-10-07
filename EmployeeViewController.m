@@ -34,6 +34,8 @@ NSDictionary *idReceiver;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.view.backgroundColor = [UIColor colorWithWhite:0.25f alpha:1.0f];
+    
     name.text = [employee empName];
     address.text = [employee empAddress];
     email.text = [employee email];
