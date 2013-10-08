@@ -38,7 +38,7 @@
     self.title = @"Grid View";
     
     self.grids = [[NSMutableArray alloc] init];
-    NSArray *firstArr = @[@"employee.png",@"leave.png",@"message.png"];
+    NSArray *firstArr = @[@"employee.png",@"leave.png"];
     [self.grids addObject:firstArr];
     NSArray *secondGrids = @[@"liverbird.png",@"exit_big.png"];
     [self.grids addObject:secondGrids];
@@ -64,7 +64,9 @@
     }
     gridCell.backgroundColor = [UIColor whiteColor];
 */
-  //  gridCell.imgView = (UIImageView *)[gridCell viewWithTag:1000];
+    
+//  gridCell.imgView = (UIImageView *)[gridCell viewWithTag:1000];
+    
     NSArray *tmpArr = self.grids[indexPath.section];
     NSString *name = tmpArr[indexPath.item];
     NSLog(@"counted at %d and %d is : %@",indexPath.section,indexPath.item,name);
@@ -86,18 +88,23 @@
   //  return 5;
 }
 
-/*
+
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
                                 duration:(NSTimeInterval)duration
 {
     if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation))
     {
-        self.customGridLayout.numberOfColumns = 3;
+        self.customGridLayout.numberOfColumns = 2;
         
         // On loandscape mode it is likely that the width is stretched, so to normalize that we do this
         CGFloat sideInset = [UIScreen mainScreen].preferredMode.size.width == 1136.0f ?
         45.0f : 25.0f;
         
+        self.customGridLayout.itemSize = CGSizeMake(300.0f, 300.0f);
+        [self.customGridLayout setItemSize:CGSizeMake(300.0f, 300.0f)];
+        CGSize tmpItemSize = CGSizeMake(300.0f, 300.0f);
+        NSDictionary *itemSizeDict = @{@"item":[NSValue valueWithCGSize:tmpItemSize]};
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ItemSizeChange" object:self userInfo:itemSizeDict];
          // UIEdgeInsets are usually used when the widths are changeable due to reasons such as orientation change
         self.customGridLayout.itemInsets = UIEdgeInsetsMake(22.0f, sideInset, 13.0f, sideInset);
     }
@@ -110,7 +117,7 @@
   //  [self.customGridLayout invalidateLayout]; // this just marks the layout as invalid and needs to be updated next time
     [self.collectionView reloadData];
 }
-*/
+
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {

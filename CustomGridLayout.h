@@ -14,4 +14,6 @@
 @property (nonatomic) CGSize itemSize;  // width and height of the cell
 @property (nonatomic) CGFloat interItemSpacingY;
 @property (nonatomic) NSInteger numberOfColumns;    //number of columns in 1 row
+
+- (void)setNewItemSize:(NSNotification *)notif;
 @end

@@ -42,9 +42,11 @@ static NSString * const CustomGridLayoutCell = @"CustomGridCell";
 - (void)setup
 {
     self.itemInsets = UIEdgeInsetsMake(22.0f, 22.0f, 13.0f, 22.0f);
-    self.itemSize = CGSizeMake(350.0f,350.0f);
+    self.itemSize = CGSizeMake(200.0f,200.0f);
     self.interItemSpacingY = 12.0f;
     self.numberOfColumns = 2;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setNewItemSize:) name:@"ItemSizeChange" object:nil];
 }
 
 /** Delegated method to perform the up-front calculations needed to provide layout information. This is the first method fired after init **/
@@ -80,8 +82,10 @@ static NSString * const CustomGridLayoutCell = @"CustomGridCell";
 /** calculates the positioning of each cell using simple maths **/
 - (CGRect)makeFrameAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger row = indexPath.section / self.numberOfColumns;
-    NSInteger column = indexPath.section % self.numberOfColumns;
+//    NSInteger row = indexPath.section / self.numberOfColumns;
+//    NSInteger column = indexPath.section % self.numberOfColumns;
+    NSInteger row = indexPath.section;
+    NSInteger column = indexPath.item;
     
     //This calculates total spaces between the cells
     CGFloat spacingX = self.collectionView.bounds.size.width -
@@ -95,7 +99,7 @@ static NSString * const CustomGridLayoutCell = @"CustomGridCell";
     
     CGFloat originY = floor(self.itemInsets.top +
                             (self.itemSize.height + self.interItemSpacingY) * row); // same as above, note we  have set spacing for Y as constant because height is irrelevent as it can scroll but width can't
-    
+   
     return CGRectMake(originX, originY, self.itemSize.width, self.itemSize.height);
 }
 
@@ -111,7 +115,8 @@ static NSString * const CustomGridLayoutCell = @"CustomGridCell";
         [elementsInfo enumerateKeysAndObjectsUsingBlock:^(NSIndexPath *indexPath,
                                                           UICollectionViewLayoutAttributes *attributes,
                                                           BOOL *innerStop) {
-            if (CGRectIntersectsRect(rect, attributes.frame)) {
+            if (CGRectIntersectsRect(rect, attributes.frame))
+            {
                 [allAttributes addObject:attributes];
             }
         }];
@@ -131,6 +136,8 @@ static NSString * const CustomGridLayoutCell = @"CustomGridCell";
 {
     NSInteger rowCount = [self.collectionView numberOfSections] / self.numberOfColumns;
     // make sure we count another row if one is only partially filled because the decimal point is directly parsed to its preceding integer. Eg: if(rowCount == 5.99) it is parsed as 5 not 6. So if this case arises we have to increase the value of 5 to 6
+    
+    
     if ([self.collectionView numberOfSections] % self.numberOfColumns) rowCount++;
     
     CGFloat height = self.itemInsets.top +
@@ -151,12 +158,22 @@ static NSString * const CustomGridLayoutCell = @"CustomGridCell";
     [self invalidateLayout];
 }
 
+-(void)setNewItemSize:(NSNotification *)notif
+{
+     NSValue *val = (NSValue *) [notif userInfo][@"item"];
+    itemSize = [val CGSizeValue];
+    NSLog(@"Is this even called ??");
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+}
+
 - (void)setItemSize:(CGSize)itemSize1
 {
+    
+    NSLog(@"item Size changed due to orientation change");
     if (CGSizeEqualToSize(itemSize, itemSize1)) return;
     
     itemSize = itemSize1;
-    
     [self invalidateLayout];
 }
 
@@ -172,12 +189,12 @@ static NSString * const CustomGridLayoutCell = @"CustomGridCell";
 - (void)setNumberOfColumns:(NSInteger)numberOfColumns1
 {
     
+    NSLog(@"column has changed to %d",numberOfColumns1);
     if (numberOfColumns == numberOfColumns1) return;
     
     numberOfColumns = numberOfColumns1;
     
     [self invalidateLayout];
-    NSLog(@"column has changed to %d",numberOfColumns);
 }
  
  
