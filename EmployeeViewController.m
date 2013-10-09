@@ -46,7 +46,6 @@ NSDictionary *idReceiver;
     remarks.text = [employee remarks];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(gotoEdit)];
-    
 }
 
 /** prepare for the view to be resumed **/

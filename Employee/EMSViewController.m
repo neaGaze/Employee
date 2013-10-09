@@ -17,7 +17,7 @@ static int *rowSelected;
 
 @implementation EMSViewController
 @synthesize empViewController;
-@synthesize arrOfEmp, tableView, getEmployeeUrl, empSearchResult;
+@synthesize arrOfEmp, tableView, getEmployeeUrl, empSearchResult, listQueue, menuController, menuPopover;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,6 +45,11 @@ static int *rowSelected;
     else{
         NSLog(@"Array returned with employee");
     }
+    
+    self.listQueue = [[NSOperationQueue alloc] init];
+    self.listQueue.maxConcurrentOperationCount = 3;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(menuSelector)];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -80,25 +85,41 @@ static int *rowSelected;
     EmployeeCell *cell = (EmployeeCell *)[tableView1 dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil) {
-       NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"EmployeeCell" owner:self options:nil];//Remember nib is just like R file in android
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"EmployeeCell" owner:self options:nil];//Remember nib is just like R file in android
         cell = [nib objectAtIndex:0];
     }
     
-    UILabel *nameLabel = (UILabel *)[cell viewWithTag:100];// similar to view.getTag() in android
-    UILabel *addressLabel = (UILabel *)[cell viewWithTag:101];// similar to view.getTag() in android
-    if (tableView1 == self.searchDisplayController.searchResultsTableView)
-    {
-        nameLabel.text = [[empSearchResult objectAtIndex:indexPath.row] empName];
-        addressLabel.text = [[empSearchResult objectAtIndex:indexPath.row] empAddress];
+    __weak EMSViewController *weakSelf = self;
+    NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
         
-    }
-    else{
-        nameLabel.text = [[arrOfEmp objectAtIndex:indexPath.row] empName];
-        addressLabel.text = [[arrOfEmp objectAtIndex:indexPath.row] empAddress];
-    }
+        UILabel *nameLabel = (UILabel *)[cell viewWithTag:100];// similar to view.getTag() in android
+        UILabel *addressLabel = (UILabel *)[cell viewWithTag:101];// similar to view.getTag() in android
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // then set them via the main queue if the cell is still visible.
+            if ([weakSelf.tableView.indexPathsForVisibleRows containsObject:indexPath]) {
+                EmployeeCell *cell =
+                (EmployeeCell *)[weakSelf.tableView cellForRowAtIndexPath:indexPath];
+                
+                if (tableView1 == self.searchDisplayController.searchResultsTableView)
+                {
+                    nameLabel.text = [[empSearchResult objectAtIndex:indexPath.row] empName];
+                    addressLabel.text = [[empSearchResult objectAtIndex:indexPath.row] empAddress];
+                    
+                }
+                else{
+                    nameLabel.text = [[arrOfEmp objectAtIndex:indexPath.row] empName];
+                    addressLabel.text = [[arrOfEmp objectAtIndex:indexPath.row] empAddress];
+                }
+                
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                
+            }
+        });
+    }];
     
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-   
+    [self.listQueue addOperation:operation];
+  
 //    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cellBackground.png"]];
 //    imageView.frame = CGRectMake(0, 78*indexPath.row, 320, cell.frame.size.height);
 //    [tableView addSubview:imageView];
@@ -208,5 +229,29 @@ shouldReloadTableForSearchString:(NSString *)searchString
 -(BOOL)canBecomeFirstResponder{
     return YES;
 }
+
+-(void)menuSelector
+{
+    if (menuController == nil) {
+        //Create the ColorPickerViewController.
+        menuController = [[MenuController alloc] initWithStyle:UITableViewStylePlain];
+        
+        //Set this VC as the delegate.
+       // menuController.delegate = self;
+    }
+    
+    if (self.menuPopover == nil) {
+        
+        self.menuPopover = [[UIPopoverController alloc] initWithContentViewController:self.menuController];
+        [self.menuPopover presentPopoverFromBarButtonItem:(UIBarButtonItem *)self.navigationItem.rightBarButtonItem permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    }
+    else
+    {
+        //The color picker popover is showing. Hide it.
+        [self.menuPopover dismissPopoverAnimated:YES];
+        self.menuPopover = nil;
+    }
+}
+
 
 @end

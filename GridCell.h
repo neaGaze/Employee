@@ -10,5 +10,6 @@
 
 @interface GridCell : UICollectionViewCell
 
-@property(strong,nonatomic) UIImageView *imgView;
+@property(strong,nonatomic) IBOutlet UIImageView *imgView;
+@property(strong,nonatomic) IBOutlet UILabel *cellId;
 @end

@@ -42,7 +42,7 @@ static NSString * const CustomGridLayoutCell = @"CustomGridCell";
 - (void)setup
 {
     self.itemInsets = UIEdgeInsetsMake(22.0f, 22.0f, 13.0f, 22.0f);
-    self.itemSize = CGSizeMake(200.0f,200.0f);
+    self.itemSize = CGSizeMake(300.0f,300.0f);
     self.interItemSpacingY = 12.0f;
     self.numberOfColumns = 2;
     

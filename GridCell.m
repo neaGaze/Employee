@@ -12,8 +12,9 @@
 @end
 
 @implementation GridCell
-@synthesize imgView;
+@synthesize imgView, cellId;
 
+/** If we intend to use our own design **/
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];

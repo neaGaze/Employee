@@ -7,26 +7,26 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GridCell"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomGridCell" id="63d-Qg-eyQ" customClass="GridCell">
-            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GridCell" id="63d-Qg-eyQ" customClass="GridCell">
+            <rect key="frame" x="0.0" y="0.0" width="248" height="224"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                <rect key="frame" x="0.0" y="0.0" width="248" height="224"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIH-bL-4ps">
-                        <rect key="frame" x="53" y="114" width="44" height="21"/>
+                        <rect key="frame" x="102" y="199" width="44" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.14554229951709222" green="0.10840069066365809" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" tag="1000" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zqu-oq-3n0">
-                        <rect key="frame" x="30" y="15" width="90" height="91"/>
+                        <rect key="frame" x="44" y="20" width="160" height="160"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="91" id="CF5-tV-mLE"/>
-                            <constraint firstAttribute="width" constant="90" id="ez8-BR-OOw"/>
+                            <constraint firstAttribute="width" constant="160" id="0ot-yd-lwn"/>
+                            <constraint firstAttribute="height" constant="160" id="chm-pa-GuL"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -34,12 +34,16 @@
             </view>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="zqu-oq-3n0" firstAttribute="top" secondItem="63d-Qg-eyQ" secondAttribute="top" constant="15" id="n9Y-q4-bcD"/>
+                <constraint firstItem="zqu-oq-3n0" firstAttribute="top" secondItem="63d-Qg-eyQ" secondAttribute="top" constant="20" id="n9Y-q4-bcD"/>
                 <constraint firstItem="zqu-oq-3n0" firstAttribute="centerX" secondItem="63d-Qg-eyQ" secondAttribute="centerX" id="tDN-Vi-Jb7"/>
-                <constraint firstItem="VIH-bL-4ps" firstAttribute="top" secondItem="zqu-oq-3n0" secondAttribute="bottom" constant="8" symbolic="YES" id="whh-bD-c6S"/>
+                <constraint firstItem="VIH-bL-4ps" firstAttribute="top" secondItem="zqu-oq-3n0" secondAttribute="bottom" constant="19" id="whh-bD-c6S"/>
                 <constraint firstItem="zqu-oq-3n0" firstAttribute="centerX" secondItem="VIH-bL-4ps" secondAttribute="centerX" id="xfq-E6-kL5"/>
             </constraints>
-            <size key="customSize" width="149" height="140"/>
+            <size key="customSize" width="247" height="214"/>
+            <connections>
+                <outlet property="cellId" destination="VIH-bL-4ps" id="rKV-QN-yEB"/>
+                <outlet property="imgView" destination="zqu-oq-3n0" id="7Ao-wE-N5L"/>
+            </connections>
         </collectionViewCell>
     </objects>
 </document>

@@ -43,8 +43,10 @@
     NSArray *secondGrids = @[@"liverbird.png",@"exit_big.png"];
     [self.grids addObject:secondGrids];
     
- //   [self.collectionView registerNib:[[NSBundle mainBundle] loadNibNamed:@"GridCell" owner:self options:nil][0] forCellWithReuseIdentifier:CellIdentifier];
-    [self.collectionView registerClass:[GridCell class] forCellWithReuseIdentifier:CellIdentifier];
+  //  [self.collectionView registerClass:[GridCell class] forCellWithReuseIdentifier:CellIdentifier];
+    
+    UINib *cellNib = [UINib nibWithNibName:@"GridCell" bundle:nil];
+    [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:@"GridCell"];
 
 }
 
@@ -56,22 +58,35 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView1 cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 
-    GridCell *gridCell = [collectionView1 dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
-/*
-    if(gridCell == nil){
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil];
-        gridCell = nib[0];
-    }
-    gridCell.backgroundColor = [UIColor whiteColor];
-*/
+    NSString *identifier = @"GridCell";
     
-//  gridCell.imgView = (UIImageView *)[gridCell viewWithTag:1000];
+    static BOOL nibMyCellloaded = NO;
+    
+    if(!nibMyCellloaded)
+    {
+        UINib *nib = [UINib nibWithNibName:identifier bundle: nil];
+        [collectionView1 registerNib:nib forCellWithReuseIdentifier:identifier];
+        nibMyCellloaded = YES;
+    }
+    
+    GridCell *gridCell = (GridCell *)[collectionView1 dequeueReusableCellWithReuseIdentifier:@"GridCell" forIndexPath:indexPath];
+  
+    gridCell.imgView = (UIImageView *)[gridCell viewWithTag:1000];
     
     NSArray *tmpArr = self.grids[indexPath.section];
     NSString *name = tmpArr[indexPath.item];
     NSLog(@"counted at %d and %d is : %@",indexPath.section,indexPath.item,name);
     gridCell.imgView.image = [UIImage imageNamed:name];
-
+    
+    if(indexPath.section == 1 && indexPath.item == 1)
+        gridCell.cellId.text = @"Exit";
+    else if (indexPath.section == 0 && indexPath.item == 0)
+        gridCell.cellId.text = @"Employee";
+    else if (indexPath.section == 0 && indexPath.item == 1)
+        gridCell.cellId.text = @"Leave";
+    else if(indexPath.section == 1 && indexPath.item == 0)
+        gridCell.cellId.text = @"YNWA";
+    
     return gridCell;
 }
 
@@ -124,7 +139,7 @@
     if(indexPath.section == 1 && indexPath.item == 1)
     {
         NSLog(@"exit button is at %d section and %d item",indexPath.section,indexPath.item);
-      //  [self.navigationController popToViewController:self animated:YES];
+      
         UIAlertView *exitAlert = [[UIAlertView alloc] initWithTitle:@"Exit Dialog" message:@"Do you want to quit?" delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:@"Cancel", nil];
        
         [exitAlert show];
