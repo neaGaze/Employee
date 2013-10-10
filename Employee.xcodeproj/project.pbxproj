@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1878EBF91805502200CC46F8 /* Employees.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1878EBF71805502200CC46F8 /* Employees.xcdatamodeld */; };
 		1889B92B17FAC7F600A2C328 /* checkbox_not_ticked.png in Resources */ = {isa = PBXBuildFile; fileRef = 1889B92917FAC7F600A2C328 /* checkbox_not_ticked.png */; };
 		1889B92C17FAC7F600A2C328 /* checkbox_ticked.png in Resources */ = {isa = PBXBuildFile; fileRef = 1889B92A17FAC7F600A2C328 /* checkbox_ticked.png */; };
 		1889B92F17FAD13500A2C328 /* CheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 1889B92E17FAD13500A2C328 /* CheckBox.m */; };
@@ -49,6 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1878EBF81805502200CC46F8 /* Employees.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Employees.xcdatamodel; sourceTree = "<group>"; };
 		1889B92917FAC7F600A2C328 /* checkbox_not_ticked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkbox_not_ticked.png; path = ../../../Desktop/checkbox_not_ticked.png; sourceTree = "<group>"; };
 		1889B92A17FAC7F600A2C328 /* checkbox_ticked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkbox_ticked.png; path = ../../../Desktop/checkbox_ticked.png; sourceTree = "<group>"; };
 		1889B92D17FAD13500A2C328 /* CheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBox.h; sourceTree = "<group>"; };
@@ -120,6 +122,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1878EBF61805500400CC46F8 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				1878EBF71805502200CC46F8 /* Employees.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		1889B92817FAC77D00A2C328 /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +168,7 @@
 		78C71C3917F18DF000B71C64 = {
 			isa = PBXGroup;
 			children = (
+				1878EBF61805500400CC46F8 /* CoreData */,
 				1889B92817FAC77D00A2C328 /* images */,
 				78802BFF17F19A670062C1A1 /* HttpConnection */,
 				78802BFB17F199B90062C1A1 /* Entity */,
@@ -346,6 +357,7 @@
 				1897048718042E2900E7A288 /* MenuController.m in Sources */,
 				18967E0F17FEDD5100FAF88F /* CustomGridLayout.m in Sources */,
 				78802BFE17F19A190062C1A1 /* Employee.m in Sources */,
+				1878EBF91805502200CC46F8 /* Employees.xcdatamodeld in Sources */,
 				78802C0217F19ABF0062C1A1 /* Connection.m in Sources */,
 				78A57EB117F2AEBC0056BEE7 /* EmployeeEditController.m in Sources */,
 			);
@@ -476,6 +488,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1878EBF71805502200CC46F8 /* Employees.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1878EBF81805502200CC46F8 /* Employees.xcdatamodel */,
+			);
+			currentVersion = 1878EBF81805502200CC46F8 /* Employees.xcdatamodel */;
+			path = Employees.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 78C71C3B17F18DF000B71C64 /* Project object */;
 }
