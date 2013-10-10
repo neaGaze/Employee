@@ -35,7 +35,7 @@ NSDictionary *idReceiver;
 	// Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor colorWithWhite:0.25f alpha:1.0f];
-    
+    self.title = @"Employee View";
     name.text = [employee empName];
     address.text = [employee empAddress];
     email.text = [employee email];
@@ -44,7 +44,17 @@ NSDictionary *idReceiver;
     homePhone.text = [NSString stringWithFormat:@"%@",[employee homePhone]];
     designation.text = [employee designation];
     remarks.text = [employee remarks];
-    
+
+    /*
+    name.text = [employeeFromCoreData valueForKey:@"employeeName"];
+    address.text = [employeeFromCoreData valueForKey:@"address"];
+    email.text = [employeeFromCoreData valueForKey:@"email"];
+    gender.text = [employeeFromCoreData valueForKey:@"gender"];
+    mobile.text = [NSString stringWithFormat:@"%@",[employeeFromCoreData valueForKey:@"mobile"]];
+    homePhone.text = [NSString stringWithFormat:@"%@",[employeeFromCoreData valueForKey:@"homePhone"]];
+    designation.text = [employeeFromCoreData valueForKey:@"designation"];
+    remarks.text = [employeeFromCoreData valueForKey:@"remarks"];
+  */
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(gotoEdit)];
 }
 
@@ -57,6 +67,7 @@ NSDictionary *idReceiver;
 /** Like the activity resume in android **/
 -(void)viewDidAppear:(BOOL)animated
 {
+    
     name.text = [employee empName];
     address.text = [employee empAddress];
     email.text = [employee email];
@@ -65,7 +76,16 @@ NSDictionary *idReceiver;
     homePhone.text = [NSString stringWithFormat:@"%@",[employee homePhone]];
     designation.text = [employee designation];
     remarks.text = [employee remarks];
-    
+     /*
+    name.text = [employeeFromCoreData valueForKey:@"employeeName"];
+    address.text = [employeeFromCoreData valueForKey:@"address"];
+    email.text = [employeeFromCoreData valueForKey:@"email"];
+    gender.text = [employeeFromCoreData valueForKey:@"gender"];
+    mobile.text = [NSString stringWithFormat:@"%@",[employeeFromCoreData valueForKey:@"mobile"]];
+    homePhone.text = [NSString stringWithFormat:@"%@",[employeeFromCoreData valueForKey:@"homePhone"]];
+    designation.text = [employeeFromCoreData valueForKey:@"designation"];
+    remarks.text = [employeeFromCoreData valueForKey:@"remarks"];
+  */
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(gotoEdit)];
 }
 
@@ -100,8 +120,6 @@ NSDictionary *idReceiver;
     int k = [EMSViewController currentRow];
     employee = [connec employees][k] ;
      //[self r];
-    
 }
-
 
 @end

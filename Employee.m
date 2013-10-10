@@ -11,6 +11,13 @@
 @implementation Employee
 @synthesize empAddress,empId,empName,gender,email,designation,remarks,homePhone,mobile;
 
+-(Employee *)init
+{
+    if(self == nil)
+        self = [self init];
+    return self;
+}
+
 -(Employee *)initWithDict:(NSDictionary *)dict{
     
     if(self = [super init]){

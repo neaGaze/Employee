@@ -23,7 +23,6 @@
 @property (nonatomic,strong) IBOutlet UILabel *homePhone;
 @property (nonatomic,strong) IBOutlet UILabel *mobile;
 @property (nonatomic,retain) Employee *employee;
-
 -(void)gotoEdit;
 -(void)reloadView:(NSNotification *)notification;
 @end

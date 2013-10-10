@@ -8,6 +8,7 @@
 
 #import "EMSViewController.h"
 #import "EmployeeCell.h"
+#import "Employee.h"
 
 @interface EMSViewController ()
     
@@ -45,6 +46,13 @@ static int *rowSelected;
     else{
         NSLog(@"Array returned with employee");
     }
+    
+    /** To save the Employee array into core data **/
+    for(Employee *arr in arrOfEmp)
+    {
+      //  [self save:arr];
+    }
+    
     
     self.listQueue = [[NSOperationQueue alloc] init];
     self.listQueue.maxConcurrentOperationCount = 3;
@@ -138,8 +146,14 @@ static int *rowSelected;
 /** When the table row is selected **/
 -(void)tableView:(UITableView *)tableView1 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EmployeeStore"];
+    NSArray *array = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
     self.empViewController = [[EmployeeViewController alloc] initWithNibName:@"EmployeeViewController" bundle:nil];
-    self.empViewController.employee = [arrOfEmp objectAtIndex:indexPath.row];
+  //  self.empViewController.employee = [arrOfEmp objectAtIndex:indexPath.row]; //if without using Core Data
+    self.empViewController.employee = [self setEmployeesFromCoreData:array[indexPath.row]];
+    
         [[self navigationController] pushViewController:empViewController animated:YES];
     rowSelected = indexPath.row;
     [tableView1 deselectRowAtIndexPath:indexPath animated:YES];
@@ -253,5 +267,63 @@ shouldReloadTableForSearchString:(NSString *)searchString
     }
 }
 
+# pragma mark - Core Data part
+
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
+- (void)cancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+/** Save the employee in the core data **/
+- (void)save:(id)sender {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    Employee *emp = (Employee *)sender;
+    // Create a new managed object
+    NSManagedObject *newEmployee = [NSEntityDescription insertNewObjectForEntityForName:@"EmployeeStore" inManagedObjectContext:context];
+    
+    [newEmployee setValue:[NSNumber numberWithInt:[emp empId]] forKey:@"employeeId"];
+    [newEmployee setValue:[emp empName] forKey:@"employeeName"];
+    [newEmployee setValue:[emp empAddress] forKey:@"address"];
+    [newEmployee setValue:[emp email] forKey:@"email"];
+    [newEmployee setValue:[emp remarks] forKey:@"remarks"];
+    [newEmployee setValue:[emp designation] forKey:@"designation"];
+    [newEmployee setValue:[NSNumber numberWithInt:[emp homePhone]] forKey:@"homePhone"];
+    [newEmployee setValue:[NSNumber numberWithInt:[emp mobile]] forKey:@"mobile"];
+    [newEmployee setValue:[emp gender] forKey:@"gender"];
+    
+    NSError *error = nil;
+    // Save the object to persistent store
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+/** Convert from core data to Employee object **/
+-(Employee *)setEmployeesFromCoreData:(NSManagedObject *)empFromCoreData
+{
+    Employee *tempEmp = [[Employee alloc] init];
+    
+    tempEmp.empId = [empFromCoreData valueForKey:@"employeeId"];
+    tempEmp.empName = [empFromCoreData valueForKey:@"employeeName"];
+    tempEmp.empAddress = [empFromCoreData valueForKey:@"address"];
+    tempEmp.email = [empFromCoreData valueForKey:@"email"];
+    tempEmp.remarks = [empFromCoreData valueForKey:@"remarks"];
+    tempEmp.designation = [empFromCoreData valueForKey:@"designation"];
+    tempEmp.homePhone = [empFromCoreData valueForKey:@"homePhone"];
+    tempEmp.mobile = [empFromCoreData valueForKey:@"mobile"];
+    tempEmp.gender = [empFromCoreData valueForKey:@"gender"];
+    
+    return tempEmp;
+}
 
 @end

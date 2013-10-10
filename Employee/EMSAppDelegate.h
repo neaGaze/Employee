@@ -19,4 +19,13 @@
 @property (strong, nonatomic) EMSViewController *viewController;
 @property(strong,nonatomic) EmployeeViewController *empViewController;
 @property(strong,nonatomic) GridViewController *gridController;
+
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+
+- (void)saveContext;
+- (NSURL *)applicationDocumentsDirectory;
+
 @end
