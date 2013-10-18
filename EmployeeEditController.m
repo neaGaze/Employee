@@ -64,12 +64,8 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [self performSelector:@selector(editEmployee)];
     NSDictionary *id = @{@"id":[emp empId]};
-  //  [[NSNotificationCenter defaultCenter] postNotificationName:@"editResultNotification" object:self];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"editResultNotification" object:self userInfo:id];  //transmit the employee Id in the userInfo dictionary
-    
-    //Before exiting we have to save the edited data into Core Data
-   // NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     [self save:emp];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"editResultNotification" object:self userInfo:id];  //transmit the employee Id in the userInfo dictionary
     
 }
 
@@ -222,13 +218,9 @@
     NSError *error = nil;
     NSArray *tmpArr = [context executeFetchRequest:request error:&error];
     
-  //  for(int i = 0; i < tmpArr.count; i++)
-  //  {
-  //   int a = [EMSViewController currentRow];
     NSManagedObject *editedEmployee = tmpArr[0];
     Employee *entity = [self setEmployeesFromCoreData:tmpArr[0]];
         NSLog(@"%dth object: %@",[tmpArr count],entity.empName);
- 
     
     entity.empAddress = empAddr.text;
     entity.remarks = empRemarks.text;

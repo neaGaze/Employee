@@ -50,7 +50,7 @@ static int *rowSelected;
     /** To save the Employee array into core data **/
     for(Employee *arr in arrOfEmp)
     {
-       // [self save:arr];
+        [self save:arr];
     }
     
     
@@ -78,6 +78,7 @@ static int *rowSelected;
     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"1bde13e5-65cd-425b-b1ce-ffaf2ce54269",@"userLoginId",@"20130706101010",@"modifiedDateTime", nil];
     NSData *dataReceived = [conn startHTTP:getEmployeeUrl dictionaryForQuery:dict];
     [conn receiveData:dataReceived];
+  //  NSLog(@"raw data: %@",[[NSString alloc] initWithData:dataReceived encoding:NSUTF8StringEncoding]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -285,11 +286,36 @@ shouldReloadTableForSearchString:(NSString *)searchString
 /** Save the employee in the core data **/
 - (void)save:(id)sender {
     NSManagedObjectContext *context = [self managedObjectContext];
-    Employee *emp = (Employee *)sender;    
-    // Create a new managed object
-    NSManagedObject *newEmployee = [NSEntityDescription insertNewObjectForEntityForName:@"EmployeeStore" inManagedObjectContext:context];
+    Employee *emp = (Employee *)sender;
     
-    [newEmployee setValue:[NSNumber numberWithInt:[emp empId]] forKey:@"employeeId"];
+    //first fetch the core data to see of the data is already exiting or not
+    NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"EmployeeStore" inManagedObjectContext:context];
+    NSFetchRequest *req = [[NSFetchRequest alloc] init];
+    [req setEntity:entityDesc];
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"employeeId == %@",[emp empId]];
+    [req setPredicate:pred];
+    NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"employeeId" ascending:YES];
+    NSArray *sortDescs = [[NSArray alloc] initWithObjects:sortDesc, nil];
+    [req setSortDescriptors:sortDescs];
+    sortDescs = nil;
+    sortDesc = nil;
+    
+    NSError *err = nil;
+    NSArray *tmpArr = [context executeFetchRequest:req error:&err];
+    
+    NSManagedObject *newEmployee;
+    if(tmpArr.count != 0)
+    {
+        //check if the data is already present in the persistent layer, use that managed Object
+        newEmployee = tmpArr[0];
+        req = nil;
+    }
+    else{
+        // If not present, Create a new managed object
+        newEmployee = [NSEntityDescription insertNewObjectForEntityForName:@"EmployeeStore" inManagedObjectContext:context];
+    }
+   
+    [newEmployee setValue:[NSNumber numberWithInteger:[[emp empId] integerValue]] forKey:@"employeeId"];
     [newEmployee setValue:[emp empName] forKey:@"employeeName"];
     [newEmployee setValue:[emp empAddress] forKey:@"address"];
     [newEmployee setValue:[emp email] forKey:@"email"];
@@ -298,7 +324,8 @@ shouldReloadTableForSearchString:(NSString *)searchString
     [newEmployee setValue:[NSDecimalNumber decimalNumberWithString:[emp homePhone]] forKey:@"homePhone"];
     [newEmployee setValue:[NSDecimalNumber decimalNumberWithString:[emp mobile]] forKey:@"mobile"];
     [newEmployee setValue:[emp gender] forKey:@"gender"];
-   // NSLog(@"MOBILE VALUE BEFORE STORING %@",[NSDecimalNumber decimalNumberWithString:[emp mobile]]);
+    
+ //   NSLog(@"MOBILE VALUE BEFORE STORING %@",[NSNumber numberWithInteger:[[emp empId] integerValue]]);
     
     NSError *error = nil;
     // Save the object to persistent store
