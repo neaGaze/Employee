@@ -7,6 +7,7 @@
 //
 
 #import "EmployeeEditController.h"
+#import "EMSViewController.h"
 
 @interface EmployeeEditController ()
 
@@ -64,7 +65,11 @@
     [self performSelector:@selector(editEmployee)];
     NSDictionary *id = @{@"id":[emp empId]};
   //  [[NSNotificationCenter defaultCenter] postNotificationName:@"editResultNotification" object:self];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"editResultNotification" object:self userInfo:id];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"editResultNotification" object:self userInfo:id];  //transmit the employee Id in the userInfo dictionary
+    
+    //Before exiting we have to save the edited data into Core Data
+   // NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    [self save:emp];
     
 }
 
@@ -166,7 +171,6 @@
     NSString *stringData = [[NSString alloc] initWithData:dataReceived encoding:NSUTF8StringEncoding];
     NSLog(@"edit Result: %@",stringData);
     
-  //  [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(IBAction)checked{
@@ -181,4 +185,115 @@
 -(IBAction)checked3{
     [json checkBoxClicked];
 }
+
+# pragma mark - Core Data part
+
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
+- (void)cancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+/** Save the employee in the core data **/
+- (void)save:(id)sender {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    Employee *empLocal = (Employee *)sender;
+    
+    NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"EmployeeStore" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDesc];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"employeeId == %@",[empLocal empId]];
+    [request setPredicate:predicate];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"employeeId" ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [request setSortDescriptors:sortDescriptors];
+    sortDescriptors = nil;
+    sortDescriptor = nil;
+    
+    NSError *error = nil;
+    NSArray *tmpArr = [context executeFetchRequest:request error:&error];
+    
+  //  for(int i = 0; i < tmpArr.count; i++)
+  //  {
+  //   int a = [EMSViewController currentRow];
+    NSManagedObject *editedEmployee = tmpArr[0];
+    Employee *entity = [self setEmployeesFromCoreData:tmpArr[0]];
+        NSLog(@"%dth object: %@",[tmpArr count],entity.empName);
+ 
+    
+    entity.empAddress = empAddr.text;
+    entity.remarks = empRemarks.text;
+    entity.designation = empDesignation.text;
+    entity.homePhone = [NSNumber numberWithChar:empHomePhone.text];
+    entity.mobile = [NSNumber numberWithChar:empMobile.text];
+    
+    [editedEmployee setValue:empAddr.text forKey:@"address"];
+    [editedEmployee setValue:empRemarks.text forKey:@"remarks"];
+    [editedEmployee setValue:empDesignation.text forKey:@"designation"];
+    [editedEmployee setValue:[NSDecimalNumber decimalNumberWithString:empHomePhone.text] forKey:@"homePhone"];
+    [editedEmployee setValue:[NSDecimalNumber decimalNumberWithString:empMobile.text] forKey:@"mobile"];
+    
+    request = nil;
+        
+    // Create a new managed object
+ /*   NSManagedObject *newEmployee = [NSEntityDescription insertNewObjectForEntityForName:@"EmployeeStore" inManagedObjectContext:context];
+    
+    [newEmployee setValue:[NSNumber numberWithInt:[empLocal empId]] forKey:@"employeeId"];
+    [newEmployee setValue:empName.text forKey:@"employeeName"];
+    [newEmployee setValue:empAddr.text forKey:@"address"];
+    [newEmployee setValue:empEmail.text forKey:@"email"];
+    [newEmployee setValue:empRemarks.text forKey:@"remarks"];
+    [newEmployee setValue:empDesignation.text forKey:@"designation"];
+    [newEmployee setValue:[NSNumber numberWithInt:empHomePhone.text] forKey:@"homePhone"];
+    [newEmployee setValue:[NSNumber numberWithInt:empMobile.text] forKey:@"mobile"];
+    [newEmployee setValue:[empLocal gender] forKey:@"gender"];
+ */
+    // Save the object to persistent store
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+    NSLog(@"Saved Edited Employee !!!");
+    
+    //}
+    [context refreshObject:tmpArr[0] mergeChanges:YES];
+    
+    //Just for testing
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EmployeeStore"];
+    NSArray *array = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    int a = [EMSViewController currentRow];
+    Employee *testEmp = [self setEmployeesFromCoreData:array[a]];
+    NSLog(@"After editing, the designation in Core data is: %@",testEmp.designation);
+    NSLog(@"The size of the returned edited array is %d",array.count);
+    //delete upto here after testing finished
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+/** Convert from core data to Employee object **/
+-(Employee *)setEmployeesFromCoreData:(NSManagedObject *)empFromCoreData
+{
+    Employee *tempEmp = [[Employee alloc] init];
+    
+    tempEmp.empId = [empFromCoreData valueForKey:@"employeeId"];
+    tempEmp.empName = [empFromCoreData valueForKey:@"employeeName"];
+    tempEmp.empAddress = [empFromCoreData valueForKey:@"address"];
+    tempEmp.email = [empFromCoreData valueForKey:@"email"];
+    tempEmp.remarks = [empFromCoreData valueForKey:@"remarks"];
+    tempEmp.designation = [empFromCoreData valueForKey:@"designation"];
+    tempEmp.homePhone = [empFromCoreData valueForKey:@"homePhone"];
+    tempEmp.mobile = [empFromCoreData valueForKey:@"mobile"];
+    tempEmp.gender = [empFromCoreData valueForKey:@"gender"];
+    
+    return tempEmp;
+}
+
 @end

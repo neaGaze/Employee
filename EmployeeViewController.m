@@ -18,7 +18,7 @@
 @synthesize name,address,email,gender,designation,remarks,homePhone,mobile;
 @synthesize employee;
 
-NSDictionary *idReceiver;
+//NSDictionary *idReceiver;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,11 +40,12 @@ NSDictionary *idReceiver;
     address.text = [employee empAddress];
     email.text = [employee email];
     gender.text = [employee gender];
-    mobile.text = [NSString stringWithFormat:@"%@",[employee mobile]];
-    homePhone.text = [NSString stringWithFormat:@"%@",[employee homePhone]];
+    mobile.text = [NSString stringWithFormat:@"%d",[[employee mobile] integerValue]];
+    homePhone.text = [NSString stringWithFormat:@"%d",[[employee homePhone] integerValue]];
     designation.text = [employee designation];
     remarks.text = [employee remarks];
-
+    
+  //  NSLog(@"MOBILE NUMBER %d",[[employee mobile] integerValue]);
     /*
     name.text = [employeeFromCoreData valueForKey:@"employeeName"];
     address.text = [employeeFromCoreData valueForKey:@"address"];
@@ -105,9 +106,9 @@ NSDictionary *idReceiver;
 }
 
 -(void)reloadView:(NSNotification *) notification {
-    NSLog(@"Call vayo jasto xa");
+   
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    idReceiver = [notification.userInfo copy];
+   // idReceiver = [notification.userInfo copy];
     NSNumber *i = [notification.userInfo objectForKey:@"id"];
     NSLog(@"emp Id: %@",i);
     
@@ -120,6 +121,7 @@ NSDictionary *idReceiver;
     int k = [EMSViewController currentRow];
     employee = [connec employees][k] ;
      //[self r];
+    NSLog(@"Employee View Controller's employee: %@",[employee designation]);
 }
 
 @end

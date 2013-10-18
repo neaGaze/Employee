@@ -50,7 +50,7 @@ static int *rowSelected;
     /** To save the Employee array into core data **/
     for(Employee *arr in arrOfEmp)
     {
-      //  [self save:arr];
+       // [self save:arr];
     }
     
     
@@ -151,10 +151,10 @@ static int *rowSelected;
     NSArray *array = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     
     self.empViewController = [[EmployeeViewController alloc] initWithNibName:@"EmployeeViewController" bundle:nil];
-  //  self.empViewController.employee = [arrOfEmp objectAtIndex:indexPath.row]; //if without using Core Data
+ //   self.empViewController.employee = [arrOfEmp objectAtIndex:indexPath.row]; //if without using Core Data
     self.empViewController.employee = [self setEmployeesFromCoreData:array[indexPath.row]];
     
-        [[self navigationController] pushViewController:empViewController animated:YES];
+    [[self navigationController] pushViewController:empViewController animated:YES];
     rowSelected = indexPath.row;
     [tableView1 deselectRowAtIndexPath:indexPath animated:YES];
     
@@ -285,7 +285,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
 /** Save the employee in the core data **/
 - (void)save:(id)sender {
     NSManagedObjectContext *context = [self managedObjectContext];
-    Employee *emp = (Employee *)sender;
+    Employee *emp = (Employee *)sender;    
     // Create a new managed object
     NSManagedObject *newEmployee = [NSEntityDescription insertNewObjectForEntityForName:@"EmployeeStore" inManagedObjectContext:context];
     
@@ -295,9 +295,10 @@ shouldReloadTableForSearchString:(NSString *)searchString
     [newEmployee setValue:[emp email] forKey:@"email"];
     [newEmployee setValue:[emp remarks] forKey:@"remarks"];
     [newEmployee setValue:[emp designation] forKey:@"designation"];
-    [newEmployee setValue:[NSNumber numberWithInt:[emp homePhone]] forKey:@"homePhone"];
-    [newEmployee setValue:[NSNumber numberWithInt:[emp mobile]] forKey:@"mobile"];
+    [newEmployee setValue:[NSDecimalNumber decimalNumberWithString:[emp homePhone]] forKey:@"homePhone"];
+    [newEmployee setValue:[NSDecimalNumber decimalNumberWithString:[emp mobile]] forKey:@"mobile"];
     [newEmployee setValue:[emp gender] forKey:@"gender"];
+   // NSLog(@"MOBILE VALUE BEFORE STORING %@",[NSDecimalNumber decimalNumberWithString:[emp mobile]]);
     
     NSError *error = nil;
     // Save the object to persistent store

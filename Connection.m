@@ -81,8 +81,8 @@
     
     for(NSDictionary *dict in arr){
         [employees addObject:[[Employee alloc] initWithDict:dict]];
-        NSLog(@"Dictionary is: %@",[dict objectForKey:@"EmployeeName"]);
-    }    
+        NSLog(@"Dictionary found is: %@ desig: %@",[dict objectForKey:@"EmployeeName"],dict[@"Designation"]);
+    }
 }
 
 
