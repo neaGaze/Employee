@@ -9,6 +9,7 @@
 #import "EMSViewController.h"
 #import "EmployeeCell.h"
 #import "Employee.h"
+#import "CoreDataController.h"
 
 @interface EMSViewController ()
     
@@ -19,6 +20,7 @@ static int *rowSelected;
 @implementation EMSViewController
 @synthesize empViewController;
 @synthesize arrOfEmp, tableView, getEmployeeUrl, empSearchResult, listQueue, menuController, menuPopover;
+@synthesize coreDataController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,6 +50,7 @@ static int *rowSelected;
     }
     
     /** To save the Employee array into core data **/
+    coreDataController = [[CoreDataController alloc] init];
     for(Employee *arr in arrOfEmp)
     {
         [self save:arr];
@@ -58,9 +61,11 @@ static int *rowSelected;
     self.listQueue.maxConcurrentOperationCount = 3;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(menuSelector)];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    
     [self becomeFirstResponder];
     [super viewWillAppear:animated];
 }
@@ -76,9 +81,15 @@ static int *rowSelected;
     conn = [Connection init];
     getEmployeeUrl = @"GetEmployeeList";
     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"1bde13e5-65cd-425b-b1ce-ffaf2ce54269",@"userLoginId",@"20130706101010",@"modifiedDateTime", nil];
-    NSData *dataReceived = [conn startHTTP:getEmployeeUrl dictionaryForQuery:dict];
-    [conn receiveData:dataReceived];
-  //  NSLog(@"raw data: %@",[[NSString alloc] initWithData:dataReceived encoding:NSUTF8StringEncoding]);
+    if([conn checkInternetConnectivity:getEmployeeUrl])
+    {
+        NSData *dataReceived = [conn startHTTP:getEmployeeUrl dictionaryForQuery:dict];
+        [conn receiveData:dataReceived];
+    }
+    else
+    {
+        NSLog(@"Network unavailable. ");
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -147,13 +158,13 @@ static int *rowSelected;
 /** When the table row is selected **/
 -(void)tableView:(UITableView *)tableView1 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSManagedObjectContext *managedObjectContext = [coreDataController managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EmployeeStore"];
     NSArray *array = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     
     self.empViewController = [[EmployeeViewController alloc] initWithNibName:@"EmployeeViewController" bundle:nil];
  //   self.empViewController.employee = [arrOfEmp objectAtIndex:indexPath.row]; //if without using Core Data
-    self.empViewController.employee = [self setEmployeesFromCoreData:array[indexPath.row]];
+    self.empViewController.employee = [coreDataController setEmployeesFromCoreData:array[indexPath.row]];
     
     [[self navigationController] pushViewController:empViewController animated:YES];
     rowSelected = indexPath.row;
@@ -270,25 +281,17 @@ shouldReloadTableForSearchString:(NSString *)searchString
 
 # pragma mark - Core Data part
 
-- (NSManagedObjectContext *)managedObjectContext {
-    NSManagedObjectContext *context = nil;
-    id delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate performSelector:@selector(managedObjectContext)]) {
-        context = [delegate managedObjectContext];
-    }
-    return context;
-}
-
 - (void)cancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /** Save the employee in the core data **/
 - (void)save:(id)sender {
-    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSManagedObjectContext *context = [coreDataController managedObjectContext];
     Employee *emp = (Employee *)sender;
     
-    //first fetch the core data to see of the data is already exiting or not
+ /*   //first fetch the core data to see of the data is already exiting or not
     NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"EmployeeStore" inManagedObjectContext:context];
     NSFetchRequest *req = [[NSFetchRequest alloc] init];
     [req setEntity:entityDesc];
@@ -302,13 +305,15 @@ shouldReloadTableForSearchString:(NSString *)searchString
     
     NSError *err = nil;
     NSArray *tmpArr = [context executeFetchRequest:req error:&err];
+ */
+    NSArray *tmpArr = [coreDataController fetchArray:@"EmployeeStore" withPredicate:[NSString stringWithFormat:@"employeeId == %@",[emp empId]] withSortDesc:@"employeeId" onContext:context];
     
     NSManagedObject *newEmployee;
     if(tmpArr.count != 0)
     {
         //check if the data is already present in the persistent layer, use that managed Object
         newEmployee = tmpArr[0];
-        req = nil;
+        //   req = nil;
     }
     else{
         // If not present, Create a new managed object
@@ -336,22 +341,6 @@ shouldReloadTableForSearchString:(NSString *)searchString
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-/** Convert from core data to Employee object **/
--(Employee *)setEmployeesFromCoreData:(NSManagedObject *)empFromCoreData
-{
-    Employee *tempEmp = [[Employee alloc] init];
-    
-    tempEmp.empId = [empFromCoreData valueForKey:@"employeeId"];
-    tempEmp.empName = [empFromCoreData valueForKey:@"employeeName"];
-    tempEmp.empAddress = [empFromCoreData valueForKey:@"address"];
-    tempEmp.email = [empFromCoreData valueForKey:@"email"];
-    tempEmp.remarks = [empFromCoreData valueForKey:@"remarks"];
-    tempEmp.designation = [empFromCoreData valueForKey:@"designation"];
-    tempEmp.homePhone = [empFromCoreData valueForKey:@"homePhone"];
-    tempEmp.mobile = [empFromCoreData valueForKey:@"mobile"];
-    tempEmp.gender = [empFromCoreData valueForKey:@"gender"];
-    
-    return tempEmp;
-}
+
 
 @end

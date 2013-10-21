@@ -8,6 +8,7 @@
 
 #import "GridViewController.h"
 #import "GridCell.h"
+#import "SVProgressHUD.h"
 
 @interface GridViewController ()
 
@@ -48,6 +49,12 @@
     UINib *cellNib = [UINib nibWithNibName:@"GridCell" bundle:nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:@"GridCell"];
 
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+  //  [(UIActivityIndicatorView *)[self.view viewWithTag:12] stopAnimating];
+    [SVProgressHUD dismiss];
 }
 
 - (void)didReceiveMemoryWarning
@@ -146,7 +153,11 @@
     }
     else
     {
+        /** For Loading progress dialog **/
+        [SVProgressHUD showWithStatus:@"Loading Table Data"];
+        
         self.mainViewController = [[EMSViewController alloc] initWithNibName:@"EMSViewController" bundle:nil];
+        
         [self.navigationController pushViewController:[self mainViewController] animated:YES];
     }
 }

@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "Employee.h"
 #import "Connection.h"
+#import "CoreDataController.h"
 
 @interface EmployeeViewController : UIViewController
 {
     Connection *connec;
 }
+
 @property (nonatomic,strong) IBOutlet UILabel *name;
 @property (nonatomic,strong) IBOutlet UILabel *address;
 @property (nonatomic,strong) IBOutlet UILabel *gender;
@@ -23,6 +25,8 @@
 @property (nonatomic,strong) IBOutlet UILabel *homePhone;
 @property (nonatomic,strong) IBOutlet UILabel *mobile;
 @property (nonatomic,retain) Employee *employee;
+@property(nonatomic,strong) CoreDataController *coredataController;
+
 -(void)gotoEdit;
 -(void)reloadView:(NSNotification *)notification;
 @end

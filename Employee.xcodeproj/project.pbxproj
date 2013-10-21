@@ -16,6 +16,11 @@
 		188FA95618029609007D870C /* liverbird.png in Resources */ = {isa = PBXBuildFile; fileRef = 188FA95218029609007D870C /* liverbird.png */; };
 		188FA95718029609007D870C /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = 188FA95318029609007D870C /* message.png */; };
 		188FAA611802D6F1007D870C /* exit_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 188FAA601802D6F1007D870C /* exit_big.png */; };
+		18904FC71814FBB70005BAAA /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18904FC41814FBB70005BAAA /* SVProgressHUD.bundle */; };
+		18904FC81814FBB70005BAAA /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 18904FC61814FBB70005BAAA /* SVProgressHUD.m */; };
+		18904FCA1814FBCE0005BAAA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18904FC91814FBCE0005BAAA /* QuartzCore.framework */; };
+		18904FCC1814FFEC0005BAAA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18904FCB1814FFEC0005BAAA /* SystemConfiguration.framework */; };
+		18904FCF181501250005BAAA /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 18904FCE181501250005BAAA /* Reachability.m */; };
 		18967E0417FEA00900FAF88F /* GridViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18967E0217FEA00900FAF88F /* GridViewController.xib */; };
 		18967E0717FEA1F900FAF88F /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18967E0617FEA1F900FAF88F /* GridViewController.m */; };
 		18967E0A17FEA3D200FAF88F /* GridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18967E0917FEA3D200FAF88F /* GridCell.m */; };
@@ -24,6 +29,7 @@
 		1897048718042E2900E7A288 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1897048518042E2900E7A288 /* MenuController.m */; };
 		1897048818042E2900E7A288 /* MenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1897048618042E2900E7A288 /* MenuController.xib */; };
 		1897048D1804331900E7A288 /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1897048C1804331900E7A288 /* MenuCell.xib */; };
+		1899346718113F0C0072026D /* CoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1899346618113F0C0072026D /* CoreDataController.m */; };
 		189DE9951806B3050021350E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189DE9941806B3050021350E /* CoreData.framework */; };
 		18AEFBE2180520F800CAEDF9 /* delete_user.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AEFBDF180520F800CAEDF9 /* delete_user.png */; };
 		18AEFBE3180520F800CAEDF9 /* edit_user.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AEFBE0180520F800CAEDF9 /* edit_user.png */; };
@@ -61,6 +67,14 @@
 		188FA95218029609007D870C /* liverbird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = liverbird.png; sourceTree = "<group>"; };
 		188FA95318029609007D870C /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message.png; sourceTree = "<group>"; };
 		188FAA601802D6F1007D870C /* exit_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exit_big.png; sourceTree = "<group>"; };
+		18904FC31814FBB70005BAAA /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		18904FC41814FBB70005BAAA /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		18904FC51814FBB70005BAAA /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		18904FC61814FBB70005BAAA /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		18904FC91814FBCE0005BAAA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		18904FCB1814FFEC0005BAAA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		18904FCD181501250005BAAA /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		18904FCE181501250005BAAA /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		18967E0217FEA00900FAF88F /* GridViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GridViewController.xib; sourceTree = "<group>"; };
 		18967E0517FEA1F900FAF88F /* GridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridViewController.h; sourceTree = "<group>"; };
 		18967E0617FEA1F900FAF88F /* GridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridViewController.m; sourceTree = "<group>"; };
@@ -73,6 +87,8 @@
 		1897048518042E2900E7A288 /* MenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuController.m; sourceTree = "<group>"; };
 		1897048618042E2900E7A288 /* MenuController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuController.xib; sourceTree = "<group>"; };
 		1897048C1804331900E7A288 /* MenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
+		1899346518113F0C0072026D /* CoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataController.h; sourceTree = "<group>"; };
+		1899346618113F0C0072026D /* CoreDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataController.m; sourceTree = "<group>"; };
 		189DE9941806B3050021350E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		18AEFBDF180520F800CAEDF9 /* delete_user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_user.png; sourceTree = "<group>"; };
 		18AEFBE0180520F800CAEDF9 /* edit_user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit_user.png; sourceTree = "<group>"; };
@@ -115,6 +131,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18904FCC1814FFEC0005BAAA /* SystemConfiguration.framework in Frameworks */,
+				18904FCA1814FBCE0005BAAA /* QuartzCore.framework in Frameworks */,
 				189DE9951806B3050021350E /* CoreData.framework in Frameworks */,
 				78C71C4917F18DF000B71C64 /* UIKit.framework in Frameworks */,
 				78C71C4B17F18DF000B71C64 /* Foundation.framework in Frameworks */,
@@ -129,6 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				1878EBF71805502200CC46F8 /* Employees.xcdatamodeld */,
+				1899346518113F0C0072026D /* CoreDataController.h */,
+				1899346618113F0C0072026D /* CoreDataController.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -150,6 +170,17 @@
 			name = images;
 			sourceTree = "<group>";
 		};
+		18904FC21814FBB70005BAAA /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				18904FC31814FBB70005BAAA /* SVProgressHUD-Prefix.pch */,
+				18904FC41814FBB70005BAAA /* SVProgressHUD.bundle */,
+				18904FC51814FBB70005BAAA /* SVProgressHUD.h */,
+				18904FC61814FBB70005BAAA /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 		78802BFB17F199B90062C1A1 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +193,8 @@
 		78802BFF17F19A670062C1A1 /* HttpConnection */ = {
 			isa = PBXGroup;
 			children = (
+				18904FCD181501250005BAAA /* Reachability.h */,
+				18904FCE181501250005BAAA /* Reachability.m */,
 				78802C0017F19ABF0062C1A1 /* Connection.h */,
 				78802C0117F19ABF0062C1A1 /* Connection.m */,
 			);
@@ -171,6 +204,7 @@
 		78C71C3917F18DF000B71C64 = {
 			isa = PBXGroup;
 			children = (
+				18904FC21814FBB70005BAAA /* SVProgressHUD */,
 				1878EBF61805500400CC46F8 /* CoreData */,
 				1889B92817FAC77D00A2C328 /* images */,
 				78802BFF17F19A670062C1A1 /* HttpConnection */,
@@ -193,6 +227,8 @@
 		78C71C4717F18DF000B71C64 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18904FCB1814FFEC0005BAAA /* SystemConfiguration.framework */,
+				18904FC91814FBCE0005BAAA /* QuartzCore.framework */,
 				189DE9941806B3050021350E /* CoreData.framework */,
 				78C71C4817F18DF000B71C64 /* UIKit.framework */,
 				78C71C4A17F18DF000B71C64 /* Foundation.framework */,
@@ -321,6 +357,7 @@
 				1889B92B17FAC7F600A2C328 /* checkbox_not_ticked.png in Resources */,
 				1897048D1804331900E7A288 /* MenuCell.xib in Resources */,
 				78C71C5317F18DF000B71C64 /* InfoPlist.strings in Resources */,
+				18904FC71814FBB70005BAAA /* SVProgressHUD.bundle in Resources */,
 				188FA95718029609007D870C /* message.png in Resources */,
 				18967E0417FEA00900FAF88F /* GridViewController.xib in Resources */,
 				78C71C5B17F18DF000B71C64 /* Default.png in Resources */,
@@ -354,7 +391,9 @@
 				18967E0717FEA1F900FAF88F /* GridViewController.m in Sources */,
 				18967E0A17FEA3D200FAF88F /* GridCell.m in Sources */,
 				78C71C6217F18DF000B71C64 /* EMSViewController.m in Sources */,
+				18904FC81814FBB70005BAAA /* SVProgressHUD.m in Sources */,
 				78C71C6F17F1902C00B71C64 /* EmployeeViewController.m in Sources */,
+				1899346718113F0C0072026D /* CoreDataController.m in Sources */,
 				78802BF717F1961F0062C1A1 /* EmployeeCell.m in Sources */,
 				1889B92F17FAD13500A2C328 /* CheckBox.m in Sources */,
 				18AEFBE71805250A00CAEDF9 /* MenuCell.m in Sources */,
@@ -363,6 +402,7 @@
 				78802BFE17F19A190062C1A1 /* Employee.m in Sources */,
 				1878EBF91805502200CC46F8 /* Employees.xcdatamodeld in Sources */,
 				78802C0217F19ABF0062C1A1 /* Connection.m in Sources */,
+				18904FCF181501250005BAAA /* Reachability.m in Sources */,
 				78A57EB117F2AEBC0056BEE7 /* EmployeeEditController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

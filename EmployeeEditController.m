@@ -8,6 +8,7 @@
 
 #import "EmployeeEditController.h"
 #import "EMSViewController.h"
+#import "CoreDataController.h"
 
 @interface EmployeeEditController ()
 
@@ -62,9 +63,12 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
-    [self performSelector:@selector(editEmployee)];
+    NSNumber *editBoolean = [self performSelector:@selector(editEmployee)];
     NSDictionary *id = @{@"id":[emp empId]};
-    [self save:emp];
+   
+    if([editBoolean integerValue] == 1) // if employee Edit is success
+        [self save:emp];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"editResultNotification" object:self userInfo:id];  //transmit the employee Id in the userInfo dictionary
     
 }
@@ -145,7 +149,7 @@
 
 
 /** To perform delete operation **/
--(void)editEmployee{
+-(NSNumber *)editEmployee{
     connection = [Connection init];
     NSString* editUrl = @"EditEmployee";
     
@@ -167,6 +171,15 @@
     NSString *stringData = [[NSString alloc] initWithData:dataReceived encoding:NSUTF8StringEncoding];
     NSLog(@"edit Result: %@",stringData);
     
+    NSError *error = [[NSError alloc] init];
+    
+    NSDictionary *editRes = [NSJSONSerialization JSONObjectWithData:dataReceived options:kNilOptions error:&error];
+    
+    NSNumber *editBool = [editRes objectForKey:@"EditEmployeeResult"];
+    NSLog(@"EDIT RESULT: %@",editBool);
+    
+    return editBool;
+    
 }
 
 -(IBAction)checked{
@@ -184,24 +197,22 @@
 
 # pragma mark - Core Data part
 
-- (NSManagedObjectContext *)managedObjectContext {
-    NSManagedObjectContext *context = nil;
-    id delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate performSelector:@selector(managedObjectContext)]) {
-        context = [delegate managedObjectContext];
-    }
-    return context;
-}
-
 - (void)cancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /** Save the employee in the core data **/
 - (void)save:(id)sender {
-    NSManagedObjectContext *context = [self managedObjectContext];
+//    NSManagedObjectContext *context = [self managedObjectContext];
     Employee *empLocal = (Employee *)sender;
     
+    NSError *err = nil;
+
+    CoreDataController *coreDataController = [[CoreDataController alloc] init];
+    NSManagedObjectContext *context = [coreDataController managedObjectContext];
+    
+    NSArray *tmpArr = [coreDataController fetchArray:@"EmployeeStore" withPredicate:[NSString  stringWithFormat:@"employeeId == %@",[empLocal empId]] withSortDesc:@"employeeId" onContext:context];
+   /*
     NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"EmployeeStore" inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDesc];
@@ -215,11 +226,10 @@
     sortDescriptors = nil;
     sortDescriptor = nil;
     
-    NSError *error = nil;
     NSArray *tmpArr = [context executeFetchRequest:request error:&error];
-    
+ */
     NSManagedObject *editedEmployee = tmpArr[0];
-    Employee *entity = [self setEmployeesFromCoreData:tmpArr[0]];
+    Employee *entity = [coreDataController setEmployeesFromCoreData:tmpArr[0]];
         NSLog(@"%dth object: %@",[tmpArr count],entity.empName);
     
     entity.empAddress = empAddr.text;
@@ -234,58 +244,27 @@
     [editedEmployee setValue:[NSDecimalNumber decimalNumberWithString:empHomePhone.text] forKey:@"homePhone"];
     [editedEmployee setValue:[NSDecimalNumber decimalNumberWithString:empMobile.text] forKey:@"mobile"];
     
-    request = nil;
-        
-    // Create a new managed object
- /*   NSManagedObject *newEmployee = [NSEntityDescription insertNewObjectForEntityForName:@"EmployeeStore" inManagedObjectContext:context];
+ //   request = nil;
     
-    [newEmployee setValue:[NSNumber numberWithInt:[empLocal empId]] forKey:@"employeeId"];
-    [newEmployee setValue:empName.text forKey:@"employeeName"];
-    [newEmployee setValue:empAddr.text forKey:@"address"];
-    [newEmployee setValue:empEmail.text forKey:@"email"];
-    [newEmployee setValue:empRemarks.text forKey:@"remarks"];
-    [newEmployee setValue:empDesignation.text forKey:@"designation"];
-    [newEmployee setValue:[NSNumber numberWithInt:empHomePhone.text] forKey:@"homePhone"];
-    [newEmployee setValue:[NSNumber numberWithInt:empMobile.text] forKey:@"mobile"];
-    [newEmployee setValue:[empLocal gender] forKey:@"gender"];
- */
     // Save the object to persistent store
-    if (![context save:&error]) {
-        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    if (![context save:&err]) {
+        NSLog(@"Can't Save! %@ %@", err, [err localizedDescription]);
     }
     NSLog(@"Saved Edited Employee !!!");
     
     //}
     [context refreshObject:tmpArr[0] mergeChanges:YES];
-    
+ /*
     //Just for testing
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EmployeeStore"];
     NSArray *array = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
     int a = [EMSViewController currentRow];
-    Employee *testEmp = [self setEmployeesFromCoreData:array[a]];
+    Employee *testEmp = [coreDataController setEmployeesFromCoreData:array[a]];
     NSLog(@"After editing, the designation in Core data is: %@",testEmp.designation);
     NSLog(@"The size of the returned edited array is %d",array.count);
     //delete upto here after testing finished
-    
+ */   
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-/** Convert from core data to Employee object **/
--(Employee *)setEmployeesFromCoreData:(NSManagedObject *)empFromCoreData
-{
-    Employee *tempEmp = [[Employee alloc] init];
-    
-    tempEmp.empId = [empFromCoreData valueForKey:@"employeeId"];
-    tempEmp.empName = [empFromCoreData valueForKey:@"employeeName"];
-    tempEmp.empAddress = [empFromCoreData valueForKey:@"address"];
-    tempEmp.email = [empFromCoreData valueForKey:@"email"];
-    tempEmp.remarks = [empFromCoreData valueForKey:@"remarks"];
-    tempEmp.designation = [empFromCoreData valueForKey:@"designation"];
-    tempEmp.homePhone = [empFromCoreData valueForKey:@"homePhone"];
-    tempEmp.mobile = [empFromCoreData valueForKey:@"mobile"];
-    tempEmp.gender = [empFromCoreData valueForKey:@"gender"];
-    
-    return tempEmp;
 }
 
 @end

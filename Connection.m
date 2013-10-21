@@ -9,6 +9,7 @@
 #import "Connection.h"
 #import "Employee.h"
 
+
 @implementation Connection
 
 @synthesize data =_data;
@@ -37,6 +38,7 @@
     NSError *error = [[NSError alloc] init];
     // Specify that it will be a POST request
     request.HTTPMethod = @"POST";
+    request.timeoutInterval = 20.0;
     
     // This is how we set header fields
     [request setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
@@ -54,13 +56,14 @@
     // Create url connection and fire request
     //  NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     /** Use synchonous connection **/
-    NSURLResponse *response = nil;
-    NSData* receivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
     
+    __block NSURLResponse *response = nil;
+    __block  NSData* receivedData = nil;
+    
+    receivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
     return receivedData;
     //  [self receiveData:receivedData];
     //  [self performSelectorOnMainThread:@selector(connect:) withObject:request waitUntilDone:YES];
-    
 }
 
 /** Used for asynchronous connection and invoke self delegate **/
@@ -110,7 +113,6 @@
     {
         NSString *responseDatas = [[NSString alloc] initWithData:_data
                                                         encoding:NSUTF8StringEncoding];
-        
         //    NSLog(@"Data received :%@",responseDatas);
         
         [self performSelectorOnMainThread:@selector(receiveData:) withObject:_data waitUntilDone:YES];
@@ -144,6 +146,45 @@
     // Check the error var
     
     NSLog(@"Error: %@",[error localizedDescription]);
+}
+
+-(BOOL)checkInternetConnectivity:(NSString *)url
+{
+    //for checking internet connectivity status
+    struct sockaddr_in addr;
+    addr.sin_len = sizeof(addr);
+    addr.sin_family = AF_INET;
+    addr.sin_port = htons(8080);
+    addr.sin_addr.s_addr = inet_addr("192.168.100.2/EMSWebService/Service1.svc");
+    
+    Reachability *networkReachability = [Reachability reachabilityWithAddress:&addr];
+    internetReachability = [Reachability reachabilityForInternetConnection];
+    
+    NetworkStatus *internetStatus = [internetReachability currentReachabilityStatus];
+    networkStatus = [networkReachability currentReachabilityStatus];
+    [internetReachability startNotifier];
+
+    NSLog(@"Network Status:%hhd Internet Status:%hhd",networkStatus, internetStatus);
+    BOOL networkAvail = NO;
+    
+    if(!(networkStatus == NotReachable) && !(internetStatus == NotReachable))
+        networkAvail = YES;
+    return networkAvail;
+   
+ /*
+    internetReachability.reachableBlock = ^(Reachability *reach)
+    {
+        
+    };
+    
+    // if the internet is not available
+    internetReachability.unreachableBlock = ^(Reachability *reach){
+        
+        NSLog(@"Internet Connection not working. Either server is down or unavailable");
+    };
+    
+    [internetReachability startNotifier];
+ */
 }
 
 @end

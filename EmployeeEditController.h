@@ -45,5 +45,5 @@
 -(IBAction)checked1;
 -(IBAction)checked2;
 -(IBAction)checked3;
--(void)editEmployee;
+-(NSNumber *)editEmployee;
 @end

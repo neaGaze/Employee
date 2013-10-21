@@ -17,6 +17,7 @@
 @implementation EmployeeViewController
 @synthesize name,address,email,gender,designation,remarks,homePhone,mobile;
 @synthesize employee;
+@synthesize coredataController;
 
 //NSDictionary *idReceiver;
 
@@ -45,23 +46,13 @@
     designation.text = [employee designation];
     remarks.text = [employee remarks];
     
-  //  NSLog(@"MOBILE NUMBER %d",[[employee mobile] integerValue]);
-    /*
-    name.text = [employeeFromCoreData valueForKey:@"employeeName"];
-    address.text = [employeeFromCoreData valueForKey:@"address"];
-    email.text = [employeeFromCoreData valueForKey:@"email"];
-    gender.text = [employeeFromCoreData valueForKey:@"gender"];
-    mobile.text = [NSString stringWithFormat:@"%@",[employeeFromCoreData valueForKey:@"mobile"]];
-    homePhone.text = [NSString stringWithFormat:@"%@",[employeeFromCoreData valueForKey:@"homePhone"]];
-    designation.text = [employeeFromCoreData valueForKey:@"designation"];
-    remarks.text = [employeeFromCoreData valueForKey:@"remarks"];
-  */
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(gotoEdit)];
 }
 
 /** prepare for the view to be resumed **/
 -(void)viewWillAppear:(BOOL)animated{
     NSLog(@"Employee View is gonna appear again");
+    coredataController = [[CoreDataController alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadView:) name:@"editResultNotification" object:nil];
 }
 
@@ -77,16 +68,7 @@
     homePhone.text = [NSString stringWithFormat:@"%@",[employee homePhone]];
     designation.text = [employee designation];
     remarks.text = [employee remarks];
-     /*
-    name.text = [employeeFromCoreData valueForKey:@"employeeName"];
-    address.text = [employeeFromCoreData valueForKey:@"address"];
-    email.text = [employeeFromCoreData valueForKey:@"email"];
-    gender.text = [employeeFromCoreData valueForKey:@"gender"];
-    mobile.text = [NSString stringWithFormat:@"%@",[employeeFromCoreData valueForKey:@"mobile"]];
-    homePhone.text = [NSString stringWithFormat:@"%@",[employeeFromCoreData valueForKey:@"homePhone"]];
-    designation.text = [employeeFromCoreData valueForKey:@"designation"];
-    remarks.text = [employeeFromCoreData valueForKey:@"remarks"];
-  */
+
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(gotoEdit)];
 }
 
@@ -108,11 +90,11 @@
 -(void)reloadView:(NSNotification *) notification {
    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-   // idReceiver = [notification.userInfo copy];
     NSNumber *i = [notification.userInfo objectForKey:@"id"];
     NSLog(@"emp Id: %@",i);
     
-    connec = [Connection init];
+    /** Using connection to retrieve the edited data **/
+/*    connec = [Connection init];
     NSString *getEmployeeUrl = @"GetEmployeeList";
     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"1bde13e5-65cd-425b-b1ce-ffaf2ce54269",@"userLoginId",@"20130706101010",@"modifiedDateTime", nil];
     NSData *dataReceived = [connec startHTTP:getEmployeeUrl dictionaryForQuery:dict];
@@ -120,7 +102,12 @@
     
     int k = [EMSViewController currentRow];
     employee = [connec employees][k] ;
-     //[self r];
+*/
+    /** Fetch the updated data from Core data **/
+    NSManagedObjectContext *context = [coredataController managedObjectContext];
+    NSArray *arr = [coredataController fetchArray:@"EmployeeStore" withPredicate:[NSString stringWithFormat:@"employeeId == %@",i] withSortDesc:@"employeeId" onContext:context];
+    employee = [coredataController setEmployeesFromCoreData:arr[0]];
+    
     NSLog(@"Employee View Controller's employee: %@",[employee designation]);
 }
 
