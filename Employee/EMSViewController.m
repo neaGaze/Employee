@@ -12,7 +12,7 @@
 #import "CoreDataController.h"
 
 @interface EMSViewController ()
-    
+
 @end
 
 static int *rowSelected;
@@ -62,6 +62,8 @@ static int *rowSelected;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(menuSelector)];
     
+ //   singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissEditing)]; //initialize tap view detector to dismiss the Editing of the table
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -74,6 +76,7 @@ static int *rowSelected;
     [self resignFirstResponder];
     [super viewWillDisappear:animated];
 }
+
 
 /** Call the httpConnection to the web service **/
 - (void)callConnection{
@@ -199,6 +202,7 @@ static int *rowSelected;
     
     empSearchResult = [[arrOfEmp filteredArrayUsingPredicate:resultPredicate] copy];
     
+     //[self.view addGestureRecognizer:singleTap];
     
 }
 
@@ -234,6 +238,10 @@ shouldReloadTableForSearchString:(NSString *)searchString
 /** To perform delete operation **/
 -(void)deleteEmployee:(Employee *)delEmp{
     conn = [Connection init];
+    
+    UIAlertView *deletePrompt = [[UIAlertView alloc] initWithTitle:@"Confirm Delete" message:@"For some reason the employees will not be deleted even if you press OK. Please assume that it will be deleted." delegate:nil cancelButtonTitle:@"Delete" otherButtonTitles:@"Cancel", nil];
+    [deletePrompt show];
+    
     NSString* deleteUrl = @"DeleteEmployee";
     NSNumber *id = [delEmp empId];
     NSDictionary *tempDict = [NSDictionary dictionaryWithObjectsAndKeys:id,@"employeeId", nil];
@@ -247,6 +255,8 @@ shouldReloadTableForSearchString:(NSString *)searchString
     // [conn receiveData:dataReceived];
     NSString *stringData = [[NSString alloc] initWithData:dataReceived encoding:NSUTF8StringEncoding];
     NSLog(@"delete Result: %@",stringData);
+    
+    
 }
 
 +(int)currentRow{
@@ -254,8 +264,16 @@ shouldReloadTableForSearchString:(NSString *)searchString
 }
 
 -(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
+    
     if(event.subtype == UIEventSubtypeMotionShake){
-        NSLog(@"Shake detected!!!!");
+       NSLog(@"Shake detected!!!!");
+        
+        if((shakeCount % 2) == 0)
+            [tableView setEditing:YES animated:YES];
+        else
+            [tableView setEditing:NO animated:NO];
+        shakeCount++;
+        
     }
     if([super respondsToSelector:@selector(motionEnded:withEvent:)])
         [super motionEnded:motion withEvent:event];

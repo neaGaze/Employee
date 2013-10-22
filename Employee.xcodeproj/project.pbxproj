@@ -32,6 +32,11 @@
 		1897048D1804331900E7A288 /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1897048C1804331900E7A288 /* MenuCell.xib */; };
 		1899346718113F0C0072026D /* CoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1899346618113F0C0072026D /* CoreDataController.m */; };
 		189DE9951806B3050021350E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189DE9941806B3050021350E /* CoreData.framework */; };
+		18A265CA18167318007D32A1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A265C818167318007D32A1 /* Default@2x.png */; };
+		18A265EE18167D43007D32A1 /* EMSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A265ED18167D43007D32A1 /* EMSViewController.xib */; };
+		18A265F018167DB0007D32A1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18A265EF18167DB0007D32A1 /* InfoPlist.strings */; };
+		18A265F518167E47007D32A1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A265F218167E47007D32A1 /* Default.png */; };
+		18A265FB18167F91007D32A1 /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A265FA18167F91007D32A1 /* Default-Landscape.png */; };
 		18AEFBE2180520F800CAEDF9 /* delete_user.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AEFBDF180520F800CAEDF9 /* delete_user.png */; };
 		18AEFBE3180520F800CAEDF9 /* edit_user.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AEFBE0180520F800CAEDF9 /* edit_user.png */; };
 		18AEFBE4180520F800CAEDF9 /* exit.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AEFBE1180520F800CAEDF9 /* exit.png */; };
@@ -45,14 +50,10 @@
 		78C71C4917F18DF000B71C64 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C71C4817F18DF000B71C64 /* UIKit.framework */; };
 		78C71C4B17F18DF000B71C64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C71C4A17F18DF000B71C64 /* Foundation.framework */; };
 		78C71C4D17F18DF000B71C64 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C71C4C17F18DF000B71C64 /* CoreGraphics.framework */; };
-		78C71C5317F18DF000B71C64 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78C71C5117F18DF000B71C64 /* InfoPlist.strings */; };
 		78C71C5517F18DF000B71C64 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 78C71C5417F18DF000B71C64 /* main.m */; };
 		78C71C5917F18DF000B71C64 /* EMSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 78C71C5817F18DF000B71C64 /* EMSAppDelegate.m */; };
-		78C71C5B17F18DF000B71C64 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 78C71C5A17F18DF000B71C64 /* Default.png */; };
-		78C71C5D17F18DF000B71C64 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 78C71C5C17F18DF000B71C64 /* Default@2x.png */; };
 		78C71C5F17F18DF000B71C64 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 78C71C5E17F18DF000B71C64 /* Default-568h@2x.png */; };
 		78C71C6217F18DF000B71C64 /* EMSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78C71C6117F18DF000B71C64 /* EMSViewController.m */; };
-		78C71C6517F18DF000B71C64 /* EMSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78C71C6317F18DF000B71C64 /* EMSViewController.xib */; };
 		78C71C6F17F1902C00B71C64 /* EmployeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78C71C6D17F1902C00B71C64 /* EmployeeViewController.m */; };
 		78C71C7017F1902C00B71C64 /* EmployeeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78C71C6E17F1902C00B71C64 /* EmployeeViewController.xib */; };
 /* End PBXBuildFile section */
@@ -92,6 +93,11 @@
 		1899346518113F0C0072026D /* CoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataController.h; sourceTree = "<group>"; };
 		1899346618113F0C0072026D /* CoreDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataController.m; sourceTree = "<group>"; };
 		189DE9941806B3050021350E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		18A265C818167318007D32A1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		18A265ED18167D43007D32A1 /* EMSViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EMSViewController.xib; sourceTree = "<group>"; };
+		18A265EF18167DB0007D32A1 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		18A265F218167E47007D32A1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = "splash screens/Default.png"; sourceTree = "<group>"; };
+		18A265FA18167F91007D32A1 /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
 		18AEFBDF180520F800CAEDF9 /* delete_user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_user.png; sourceTree = "<group>"; };
 		18AEFBE0180520F800CAEDF9 /* edit_user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit_user.png; sourceTree = "<group>"; };
 		18AEFBE1180520F800CAEDF9 /* exit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exit.png; sourceTree = "<group>"; };
@@ -112,17 +118,13 @@
 		78C71C4A17F18DF000B71C64 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		78C71C4C17F18DF000B71C64 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		78C71C5017F18DF000B71C64 /* Employee-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Employee-Info.plist"; sourceTree = "<group>"; };
-		78C71C5217F18DF000B71C64 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		78C71C5417F18DF000B71C64 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		78C71C5617F18DF000B71C64 /* Employee-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Employee-Prefix.pch"; sourceTree = "<group>"; };
 		78C71C5717F18DF000B71C64 /* EMSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EMSAppDelegate.h; sourceTree = "<group>"; };
 		78C71C5817F18DF000B71C64 /* EMSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EMSAppDelegate.m; sourceTree = "<group>"; };
-		78C71C5A17F18DF000B71C64 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		78C71C5C17F18DF000B71C64 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		78C71C5E17F18DF000B71C64 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		78C71C6017F18DF000B71C64 /* EMSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EMSViewController.h; path = Employee/EMSViewController.h; sourceTree = "<group>"; };
 		78C71C6117F18DF000B71C64 /* EMSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EMSViewController.m; path = Employee/EMSViewController.m; sourceTree = "<group>"; };
-		78C71C6417F18DF000B71C64 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/EMSViewController.xib; sourceTree = "<group>"; };
 		78C71C6C17F1902C00B71C64 /* EmployeeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeeViewController.h; sourceTree = "<group>"; };
 		78C71C6D17F1902C00B71C64 /* EmployeeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmployeeViewController.m; sourceTree = "<group>"; };
 		78C71C6E17F1902C00B71C64 /* EmployeeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeeViewController.xib; sourceTree = "<group>"; };
@@ -253,12 +255,13 @@
 		78C71C4F17F18DF000B71C64 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				18A265FA18167F91007D32A1 /* Default-Landscape.png */,
+				18A265F218167E47007D32A1 /* Default.png */,
+				18A265EF18167DB0007D32A1 /* InfoPlist.strings */,
+				18A265C818167318007D32A1 /* Default@2x.png */,
 				78C71C5017F18DF000B71C64 /* Employee-Info.plist */,
-				78C71C5117F18DF000B71C64 /* InfoPlist.strings */,
 				78C71C5417F18DF000B71C64 /* main.m */,
 				78C71C5617F18DF000B71C64 /* Employee-Prefix.pch */,
-				78C71C5A17F18DF000B71C64 /* Default.png */,
-				78C71C5C17F18DF000B71C64 /* Default@2x.png */,
 				78C71C5E17F18DF000B71C64 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
@@ -267,9 +270,9 @@
 		78C71C6B17F18DFE00B71C64 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				18A265ED18167D43007D32A1 /* EMSViewController.xib */,
 				78C71C6017F18DF000B71C64 /* EMSViewController.h */,
 				78C71C6117F18DF000B71C64 /* EMSViewController.m */,
-				78C71C6317F18DF000B71C64 /* EMSViewController.xib */,
 				78C71C6C17F1902C00B71C64 /* EmployeeViewController.h */,
 				78C71C6D17F1902C00B71C64 /* EmployeeViewController.m */,
 				78C71C6E17F1902C00B71C64 /* EmployeeViewController.xib */,
@@ -357,25 +360,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				1889B92C17FAC7F600A2C328 /* checkbox_ticked.png in Resources */,
+				18A265F018167DB0007D32A1 /* InfoPlist.strings in Resources */,
 				18904FD31815501D0005BAAA /* employeeListJSONfile in Resources */,
 				1889B92B17FAC7F600A2C328 /* checkbox_not_ticked.png in Resources */,
 				1897048D1804331900E7A288 /* MenuCell.xib in Resources */,
-				78C71C5317F18DF000B71C64 /* InfoPlist.strings in Resources */,
+				18A265CA18167318007D32A1 /* Default@2x.png in Resources */,
 				18904FC71814FBB70005BAAA /* SVProgressHUD.bundle in Resources */,
 				188FA95718029609007D870C /* message.png in Resources */,
+				18A265FB18167F91007D32A1 /* Default-Landscape.png in Resources */,
 				18967E0417FEA00900FAF88F /* GridViewController.xib in Resources */,
-				78C71C5B17F18DF000B71C64 /* Default.png in Resources */,
-				78C71C5D17F18DF000B71C64 /* Default@2x.png in Resources */,
 				78C71C5F17F18DF000B71C64 /* Default-568h@2x.png in Resources */,
+				18A265EE18167D43007D32A1 /* EMSViewController.xib in Resources */,
 				188FAA611802D6F1007D870C /* exit_big.png in Resources */,
 				18967E0C17FEA40F00FAF88F /* GridCell.xib in Resources */,
 				18AEFBE4180520F800CAEDF9 /* exit.png in Resources */,
-				78C71C6517F18DF000B71C64 /* EMSViewController.xib in Resources */,
 				78C71C7017F1902C00B71C64 /* EmployeeViewController.xib in Resources */,
 				1897048818042E2900E7A288 /* MenuController.xib in Resources */,
 				78518A4D17F1B90200D6C768 /* EmployeeCell.xib in Resources */,
 				18AEFBE3180520F800CAEDF9 /* edit_user.png in Resources */,
 				78A57EB517F2AF900056BEE7 /* EmployeeEditController.storyboard in Resources */,
+				18A265F518167E47007D32A1 /* Default.png in Resources */,
 				188FA95618029609007D870C /* liverbird.png in Resources */,
 				188FA95418029609007D870C /* employee.png in Resources */,
 				188FA95518029609007D870C /* leave.png in Resources */,
@@ -412,26 +416,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		78C71C5117F18DF000B71C64 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				78C71C5217F18DF000B71C64 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		78C71C6317F18DF000B71C64 /* EMSViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				78C71C6417F18DF000B71C64 /* en */,
-			);
-			name = EMSViewController.xib;
-			path = Employee;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		78C71C6617F18DF000B71C64 /* Debug */ = {

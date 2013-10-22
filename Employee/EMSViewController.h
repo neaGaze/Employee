@@ -14,6 +14,8 @@
 #import "CoreDataController.h"
 #import "Reachability.h"
 
+static NSInteger shakeCount = 0;
+
 @interface EMSViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
     Connection *conn;
