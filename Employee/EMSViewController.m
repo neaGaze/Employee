@@ -81,14 +81,23 @@ static int *rowSelected;
     conn = [Connection init];
     getEmployeeUrl = @"GetEmployeeList";
     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"1bde13e5-65cd-425b-b1ce-ffaf2ce54269",@"userLoginId",@"20130706101010",@"modifiedDateTime", nil];
-    if([conn checkInternetConnectivity:getEmployeeUrl])
+    NSData *dataReceived = nil;
+    if([conn checkInternetConnectivity])
     {
-        NSData *dataReceived = [conn startHTTP:getEmployeeUrl dictionaryForQuery:dict];
+        dataReceived = [conn startHTTP:getEmployeeUrl dictionaryForQuery:dict];
         [conn receiveData:dataReceived];
     }
     else
     {
         NSLog(@"Network unavailable. ");
+        
+        UIAlertView *connectionAlert = [[UIAlertView alloc] initWithTitle:@"Connection Orientation" message:@"You have accessed through offline process. Do you have the webservice running?or internet access?" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [connectionAlert show];
+
+        NSString *hardCodedJSON = [[NSBundle mainBundle] pathForResource:@"employeeListJSONfile" ofType:nil];
+        dataReceived = [[NSData alloc] initWithContentsOfFile:hardCodedJSON];
+        [conn receiveData:dataReceived];
+    //    NSLog(@"Hard Coded JSON Data: %@",[[NSString alloc] initWithData:dataReceived encoding:NSUTF8StringEncoding]);
     }
 }
 

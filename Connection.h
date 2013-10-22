@@ -22,7 +22,7 @@
 
 -(NSData *)startHTTP:(NSString *)url dictionaryForQuery:(NSDictionary *)dictionary;
 - (void)receiveData:(NSData *)responseData;
--(BOOL)checkInternetConnectivity:(NSString *)url;
+-(BOOL)checkInternetConnectivity;
 +(Connection *)init;
 
 @end

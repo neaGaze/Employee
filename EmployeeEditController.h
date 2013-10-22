@@ -11,7 +11,7 @@
 #import "Connection.h"
 #import "CheckBox.h"
 
-@interface EmployeeEditController : UITableViewController<UIPickerViewDataSource,UIPickerViewDelegate>
+@interface EmployeeEditController : UITableViewController<UIPickerViewDataSource,UIPickerViewDelegate, UIAlertViewDelegate>
 
 @property (strong,nonatomic) Connection *connection;
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerView;

@@ -59,18 +59,23 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)]; //initialize tap view detector to dismiss the keyboard or Picker View
     [self.view addGestureRecognizer:tap];   //add the tap gesture detector to the current view
     
-   // [self.navigationItem.backBarButtonItem setAction:@selector(editEmployee:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Employee View" style:UIBarButtonItemStyleBordered target:self action:@selector(confirmExit:)] ;
+}
+
+-(void)confirmExit:(id)sender
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Do you want to change the Details" message:@"Your changes will be queried in web service. Do you want to continue?" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel", nil];
+    [alert show];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
-    NSNumber *editBoolean = [self performSelector:@selector(editEmployee)];
+  /**
+   Called When this view is popped from the navigation Controller
+   **/
+    [super viewDidDisappear:animated];
+    
     NSDictionary *id = @{@"id":[emp empId]};
-   
-    if([editBoolean integerValue] == 1) // if employee Edit is success
-        [self save:emp];
-    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"editResultNotification" object:self userInfo:id];  //transmit the employee Id in the userInfo dictionary
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -152,6 +157,9 @@
 -(NSNumber *)editEmployee{
     connection = [Connection init];
     NSString* editUrl = @"EditEmployee";
+    
+    if(![connection checkInternetConnectivity]) // if network can't be found return error
+        return 0;
     
     NSString *gend;
     if(empGender.selectedSegmentIndex == 0)
@@ -254,17 +262,33 @@
     
     //}
     [context refreshObject:tmpArr[0] mergeChanges:YES];
- /*
-    //Just for testing
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EmployeeStore"];
-    NSArray *array = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    int a = [EMSViewController currentRow];
-    Employee *testEmp = [coreDataController setEmployeesFromCoreData:array[a]];
-    NSLog(@"After editing, the designation in Core data is: %@",testEmp.designation);
-    NSLog(@"The size of the returned edited array is %d",array.count);
-    //delete upto here after testing finished
- */   
+   
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+# pragma mark - UIAlertView delegate
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0)
+    {
+        NSNumber *editBoolean = [self performSelector:@selector(editEmployee)]; // query web service for Editing Employee content
+        
+        if([editBoolean integerValue] == 1) // if employee Edit is success, save the new info into Core Data
+            [self save:emp];
+        else
+            [self performSelector:@selector(connErrorPrompt)];
+            
+    }
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+-(void)connErrorPrompt
+{
+    UIAlertView *connPrompt = [[UIAlertView alloc] initWithTitle:@"Error while Saving !!" message:@"Error while saving because the network couldnot be found" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [connPrompt show];
 }
 
 @end

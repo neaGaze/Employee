@@ -31,7 +31,7 @@
 -(NSData *)startHTTP:(NSString *)url dictionaryForQuery:(NSDictionary *)dictionary
 {
     NSMutableString *fullUrl = [NSMutableString stringWithFormat:@"http://192.168.100.2/EMSWebService/Service1.svc/json/%@",url];
-    employees = [[NSMutableArray alloc] init];
+  //  employees = [[NSMutableArray alloc] init];
     
     // Create the request.
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:fullUrl]];
@@ -55,12 +55,13 @@
     
     // Create url connection and fire request
     //  NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    /** Use synchonous connection **/
     
     __block NSURLResponse *response = nil;
     __block  NSData* receivedData = nil;
     
+    /** Use synchonous connection **/
     receivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+ //   NSLog(@"Raw data:%@",[[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding]);
     return receivedData;
     //  [self receiveData:receivedData];
     //  [self performSelectorOnMainThread:@selector(connect:) withObject:request waitUntilDone:YES];
@@ -76,6 +77,7 @@
 /** For parsing the results of GetEmployees query **/
 - (void)receiveData:(NSData *)responseData {
     //parse out the json data
+    employees = [[NSMutableArray alloc] init];
     NSError *error = [[NSError alloc] init];
     
     NSDictionary *empList = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
@@ -148,7 +150,7 @@
     NSLog(@"Error: %@",[error localizedDescription]);
 }
 
--(BOOL)checkInternetConnectivity:(NSString *)url
+-(BOOL)checkInternetConnectivity
 {
     //for checking internet connectivity status
     struct sockaddr_in addr;

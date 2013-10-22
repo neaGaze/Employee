@@ -21,6 +21,7 @@
 		18904FCA1814FBCE0005BAAA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18904FC91814FBCE0005BAAA /* QuartzCore.framework */; };
 		18904FCC1814FFEC0005BAAA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18904FCB1814FFEC0005BAAA /* SystemConfiguration.framework */; };
 		18904FCF181501250005BAAA /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 18904FCE181501250005BAAA /* Reachability.m */; };
+		18904FD31815501D0005BAAA /* employeeListJSONfile in Resources */ = {isa = PBXBuildFile; fileRef = 18904FD21815501D0005BAAA /* employeeListJSONfile */; };
 		18967E0417FEA00900FAF88F /* GridViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18967E0217FEA00900FAF88F /* GridViewController.xib */; };
 		18967E0717FEA1F900FAF88F /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18967E0617FEA1F900FAF88F /* GridViewController.m */; };
 		18967E0A17FEA3D200FAF88F /* GridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18967E0917FEA3D200FAF88F /* GridCell.m */; };
@@ -75,6 +76,7 @@
 		18904FCB1814FFEC0005BAAA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		18904FCD181501250005BAAA /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		18904FCE181501250005BAAA /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		18904FD21815501D0005BAAA /* employeeListJSONfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = employeeListJSONfile; sourceTree = "<group>"; };
 		18967E0217FEA00900FAF88F /* GridViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GridViewController.xib; sourceTree = "<group>"; };
 		18967E0517FEA1F900FAF88F /* GridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridViewController.h; sourceTree = "<group>"; };
 		18967E0617FEA1F900FAF88F /* GridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridViewController.m; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 		78C71C4E17F18DF000B71C64 /* Employee */ = {
 			isa = PBXGroup;
 			children = (
+				18904FD21815501D0005BAAA /* employeeListJSONfile */,
 				78C71C5717F18DF000B71C64 /* EMSAppDelegate.h */,
 				78C71C5817F18DF000B71C64 /* EMSAppDelegate.m */,
 				78C71C4F17F18DF000B71C64 /* Supporting Files */,
@@ -354,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1889B92C17FAC7F600A2C328 /* checkbox_ticked.png in Resources */,
+				18904FD31815501D0005BAAA /* employeeListJSONfile in Resources */,
 				1889B92B17FAC7F600A2C328 /* checkbox_not_ticked.png in Resources */,
 				1897048D1804331900E7A288 /* MenuCell.xib in Resources */,
 				78C71C5317F18DF000B71C64 /* InfoPlist.strings in Resources */,
